@@ -365,6 +365,70 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
 .upload-progress-bar{height:100%;width:0;background:var(--gold);transition:width .3s;}
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--gold);color:var(--black);padding:.7rem 2rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;font-family:var(--font-sans);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ═══ PRODUCT DETAIL PAGE ═══ */
+#product-page{display:none;position:fixed;inset:0;background:var(--black);z-index:500;overflow-y:auto;}
+#product-page.open{display:block;}
+.pdp-bar{background:rgba(14,14,14,.96);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px);}
+.pdp-bar-brand{font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);font-style:italic;}
+.pdp-back{background:none;border:none;color:var(--muted);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;gap:.5rem;transition:color .2s;}
+.pdp-back:hover{color:var(--gold);}
+.pdp-body{max-width:1100px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.pdp-gallery{position:sticky;top:80px;}
+.pdp-main-img{aspect-ratio:1;overflow:hidden;background:var(--surface);border:1px solid var(--border);margin-bottom:.6rem;}
+.pdp-main-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.pdp-main-img:hover img{transform:scale(1.04);}
+.pdp-main-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--border);}
+.pdp-thumbs{display:flex;gap:.5rem;}
+.pdp-thumb{width:72px;height:72px;overflow:hidden;background:var(--surface);border:1px solid var(--border);cursor:pointer;transition:border-color .2s;flex-shrink:0;}
+.pdp-thumb.active{border-color:var(--gold);}
+.pdp-thumb img{width:100%;height:100%;object-fit:cover;}
+.pdp-info{padding-top:.5rem;}
+.pdp-breadcrumb{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+.pdp-breadcrumb span{color:var(--gold);}
+.pdp-badges{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap;}
+.pdp-cat{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;font-weight:500;}
+.pdp-name{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:#f5f0e8;line-height:1.1;margin-bottom:.8rem;}
+.pdp-price-wrap{margin-bottom:1.5rem;}
+.pdp-old-price{font-size:.9rem;color:var(--muted);text-decoration:line-through;margin-bottom:.2rem;}
+.pdp-price{font-family:var(--font-serif);font-size:2rem;color:var(--gold2);font-weight:300;}
+.pdp-divider{height:1px;background:var(--border);margin:1.5rem 0;}
+.pdp-desc{font-size:.82rem;color:var(--muted);line-height:2;margin-bottom:1.5rem;}
+.pdp-specs{margin-bottom:1.8rem;}
+.pdp-specs-title{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:600;}
+.pdp-spec-row{display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.75rem;}
+.pdp-spec-row:last-child{border-bottom:none;}
+.pdp-spec-label{color:var(--muted);}
+.pdp-spec-value{color:#f5f0e8;font-weight:500;}
+.pdp-stock-info{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;font-size:.72rem;}
+.pdp-stock-dot{width:7px;height:7px;border-radius:50%;}
+.pdp-stock-dot.ok{background:var(--green);}
+.pdp-stock-dot.low{background:#f59e0b;}
+.pdp-stock-dot.out{background:var(--red);}
+.pdp-qty-wrap{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;}
+.pdp-qty-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+.pdp-qty-ctrl{display:flex;align-items:center;border:1px solid var(--border);}
+.pdp-qty-btn{background:none;border:none;color:var(--muted);width:36px;height:36px;cursor:pointer;font-size:1rem;transition:color .2s;display:flex;align-items:center;justify-content:center;}
+.pdp-qty-btn:hover{color:var(--gold);}
+.pdp-qty-val{width:40px;text-align:center;font-size:.85rem;color:#f5f0e8;background:none;border:none;border-left:1px solid var(--border);border-right:1px solid var(--border);height:36px;font-family:var(--font-sans);}
+.pdp-qty-val:focus{outline:none;}
+.pdp-add-btn{width:100%;background:var(--gold);color:var(--black);border:none;padding:1rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:700;transition:background .2s;margin-bottom:.6rem;display:flex;align-items:center;justify-content:center;gap:.7rem;}
+.pdp-add-btn:hover{background:var(--gold2);}
+.pdp-add-btn:disabled{opacity:.4;cursor:not-allowed;}
+.pdp-wish-btn{width:100%;background:transparent;color:var(--muted);border:1px solid var(--border);padding:.75rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem;}
+.pdp-wish-btn:hover{border-color:var(--gold);color:var(--gold);}
+.pdp-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:1.5rem;}
+.pdp-trust-item{text-align:center;padding:.8rem .4rem;border:1px solid var(--border);background:var(--charcoal);}
+.pdp-trust-icon{color:var(--gold);margin-bottom:.3rem;opacity:.7;}
+.pdp-trust-label{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;}
+.pdp-long-desc{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);}
+.pdp-long-desc h3{font-family:var(--font-serif);font-size:1.4rem;font-weight:300;color:var(--gold);margin-bottom:1rem;font-style:italic;}
+.pdp-long-desc p{font-size:.8rem;color:var(--muted);line-height:2;}
+
+/* admin product detail fields */
+.pac-detail-section{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
+.pac-detail-section-title{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:600;}
+
 @media(max-width:768px){
   .nav-inner{padding:0 1.5rem;}.nav-links{display:none;}.section-wrap{padding:3.5rem 1.5rem;}
   .checkout-body{grid-template-columns:1fr;}.checkout-right{position:static;}
@@ -374,6 +438,8 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
   .agrid,.form-row{grid-template-columns:1fr;}
   .hero-ctas{flex-direction:column;align-items:center;}
   .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;padding:1rem 1.5rem;}
+  .pdp-body{grid-template-columns:1fr;gap:2rem;}
+  .pdp-gallery{position:static;}
 }
 </style>
 </head>
@@ -479,6 +545,79 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
   </div>
   <div class="footer-bottom"><span id="footer-copy-text">© 2025 Indomita Silver · Todos los derechos reservados</span><span id="footer-copy-right-el">Plata 925 · Chile 🇨🇱</span></div>
 </footer>
+
+<!-- PRODUCT DETAIL PAGE -->
+<div id="product-page">
+  <div class="pdp-bar">
+    <div class="pdp-bar-brand" id="pdp-brand-name">Indomita Silver</div>
+    <button class="pdp-back" onclick="closeProductPage()">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Volver a la colección
+    </button>
+  </div>
+  <div class="pdp-body">
+    <div class="pdp-gallery">
+      <div class="pdp-main-img" id="pdp-main-img-wrap">
+        <div class="pdp-main-ph" id="pdp-main-ph">
+          <svg width="60" height="60" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <img id="pdp-main-img" src="" alt="" style="display:none">
+      </div>
+      <div class="pdp-thumbs" id="pdp-thumbs"></div>
+    </div>
+    <div class="pdp-info">
+      <div class="pdp-breadcrumb">Tienda / <span id="pdp-breadcrumb-cat">Categoría</span></div>
+      <div class="pdp-badges" id="pdp-badges"></div>
+      <div class="pdp-cat" id="pdp-cat-label"></div>
+      <h1 class="pdp-name" id="pdp-name"></h1>
+      <div class="pdp-price-wrap">
+        <div class="pdp-old-price" id="pdp-old-price" style="display:none"></div>
+        <div class="pdp-price" id="pdp-price"></div>
+      </div>
+      <div class="pdp-divider"></div>
+      <p class="pdp-desc" id="pdp-desc"></p>
+      <div class="pdp-specs" id="pdp-specs-wrap">
+        <div class="pdp-specs-title">Especificaciones</div>
+        <div id="pdp-specs-list"></div>
+      </div>
+      <div class="pdp-stock-info" id="pdp-stock-info"></div>
+      <div class="pdp-qty-wrap" id="pdp-qty-wrap">
+        <span class="pdp-qty-label">Cantidad</span>
+        <div class="pdp-qty-ctrl">
+          <button class="pdp-qty-btn" onclick="pdpQtyChange(-1)">−</button>
+          <input class="pdp-qty-val" type="number" id="pdp-qty" value="1" min="1">
+          <button class="pdp-qty-btn" onclick="pdpQtyChange(1)">+</button>
+        </div>
+      </div>
+      <button class="pdp-add-btn" id="pdp-add-btn" onclick="pdpAddToCart()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Agregar al carrito
+      </button>
+      <button class="pdp-wish-btn">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Guardar en favoritos
+      </button>
+      <div class="pdp-trust">
+        <div class="pdp-trust-item">
+          <div class="pdp-trust-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="pdp-trust-label">Plata 925 certificada</span>
+        </div>
+        <div class="pdp-trust-item">
+          <div class="pdp-trust-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8zM5.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg></div>
+          <span class="pdp-trust-label">Envío a todo Chile</span>
+        </div>
+        <div class="pdp-trust-item">
+          <div class="pdp-trust-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg></div>
+          <span class="pdp-trust-label">Devolución 30 días</span>
+        </div>
+      </div>
+      <div class="pdp-long-desc" id="pdp-long-desc-wrap" style="display:none">
+        <h3>Sobre esta pieza</h3>
+        <p id="pdp-long-desc"></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cart-drawer">
@@ -1017,7 +1156,7 @@ function renderStore(){
     const outOfStock=p.stock===0;
     const lowStock=p.stock>0&&p.stock<=3;
     const c=document.createElement('div');c.className='product-card';
-    c.innerHTML=`<div class="product-img">
+    c.innerHTML=`<div class="product-img" onclick="openProductPage(${i})" style="cursor:pointer">
       ${p.img?`<img src="${p.img}" alt="${p.name}">`:`<div class="product-img-ph"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>`}
       <div class="product-badge-wrap">${p.badge?`<span class="product-badge ${p.badge}">${p.badgeText}</span>`:''}</div>
       ${outOfStock?`<div class="stock-badge out">Agotado</div>`:lowStock?`<div class="stock-badge low">Últimas ${p.stock} unidades</div>`:``}
@@ -1321,6 +1460,23 @@ function renderAdmin(){
             </div>
           </div>
         </div>
+        <div class="pac-detail-section">
+          <div class="pac-detail-section-title">Página de detalle del producto</div>
+          <div class="agrid">
+            <div class="af"><label>Material</label><input type="text" value="${p.material||''}" placeholder="Plata 925" oninput="data.products[${i}].material=this.value;markUnsaved()"></div>
+            <div class="af"><label>Largo / Medida</label><input type="text" value="${p.largo||''}" placeholder="45 cm" oninput="data.products[${i}].largo=this.value;markUnsaved()"></div>
+          </div>
+          <div class="agrid">
+            <div class="af"><label>Peso</label><input type="text" value="${p.peso||''}" placeholder="3.2 g" oninput="data.products[${i}].peso=this.value;markUnsaved()"></div>
+            <div class="af"><label>Acabado</label><input type="text" value="${p.acabado||''}" placeholder="Baño de rodio" oninput="data.products[${i}].acabado=this.value;markUnsaved()"></div>
+          </div>
+          <div class="agrid">
+            <div class="af"><label>Origen</label><input type="text" value="${p.origen||''}" placeholder="Chile" oninput="data.products[${i}].origen=this.value;markUnsaved()"></div>
+            <div class="af"><label>Especificación extra</label><input type="text" value="${p.extra||''}" placeholder="Ej: Resistente al agua" oninput="data.products[${i}].extra=this.value;markUnsaved()"></div>
+          </div>
+          <div class="af"><label>Descripción larga (página de detalle)</label><textarea rows="4" placeholder="Descripción extensa para la página del producto..." oninput="data.products[${i}].longDesc=this.value;markUnsaved()">${p.longDesc||''}</textarea></div>
+          <div class="af"><label>Imágenes adicionales (URLs separadas por comas)</label><input type="text" value="${(p.extraImgs||[]).join(',')}" placeholder="https://url1.jpg, https://url2.jpg" oninput="data.products[${i}].extraImgs=this.value.split(',').map(s=>s.trim()).filter(Boolean);markUnsaved()"><div class="af-hint">La imagen principal + estas se mostrarán como miniaturas en la página del producto</div></div>
+        </div>
       </div>`;
     pa.appendChild(div);
   });
@@ -1488,6 +1644,64 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 renderStore();
-</script>
+
+// ═══ PRODUCT DETAIL PAGE ═══
+let currentPdpIdx = null;
+
+function openProductPage(idx) {
+  const p = data.products[idx];
+  currentPdpIdx = idx;
+  document.getElementById('pdp-brand-name').textContent = data.brandName;
+  document.getElementById('pdp-breadcrumb-cat').textContent = p.cat||'';
+  document.getElementById('pdp-cat-label').textContent = p.cat||'';
+  document.getElementById('pdp-name').textContent = p.name||'';
+  const oldPriceEl = document.getElementById('pdp-old-price');
+  if(p.oldPrice){oldPriceEl.textContent=p.oldPrice;oldPriceEl.style.display='block';}else{oldPriceEl.style.display='none';}
+  document.getElementById('pdp-price').textContent = p.price||'';
+  document.getElementById('pdp-desc').textContent = p.desc||'';
+  const specs=[];
+  if(p.material) specs.push({label:'Material',value:p.material});
+  if(p.largo) specs.push({label:'Largo / Medida',value:p.largo});
+  if(p.peso) specs.push({label:'Peso',value:p.peso});
+  if(p.acabado) specs.push({label:'Acabado',value:p.acabado});
+  if(p.origen) specs.push({label:'Origen',value:p.origen});
+  if(p.extra) specs.push({label:'Detalle',value:p.extra});
+  const specsList=document.getElementById('pdp-specs-list');
+  const specsWrap=document.getElementById('pdp-specs-wrap');
+  if(specs.length){specsList.innerHTML=specs.map(s=>`<div class="pdp-spec-row"><span class="pdp-spec-label">${s.label}</span><span class="pdp-spec-value">${s.value}</span></div>`).join('');specsWrap.style.display='block';}else{specsWrap.style.display='none';}
+  const longDescWrap=document.getElementById('pdp-long-desc-wrap');
+  if(p.longDesc){document.getElementById('pdp-long-desc').textContent=p.longDesc;longDescWrap.style.display='block';}else{longDescWrap.style.display='none';}
+  document.getElementById('pdp-badges').innerHTML=p.badge?`<span class="product-badge ${p.badge}">${p.badgeText}</span>`:'';
+  const stockEl=document.getElementById('pdp-stock-info');
+  const addBtn=document.getElementById('pdp-add-btn');
+  const qtyWrap=document.getElementById('pdp-qty-wrap');
+  const cartSvg=`<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>`;
+  if(p.stock===0){stockEl.innerHTML=`<span class="pdp-stock-dot out"></span><span style="color:var(--red)">Agotado</span>`;addBtn.disabled=true;addBtn.textContent='Agotado';qtyWrap.style.display='none';}
+  else if(p.stock<=3){stockEl.innerHTML=`<span class="pdp-stock-dot low"></span><span style="color:#f59e0b">Últimas ${p.stock} unidades</span>`;addBtn.disabled=false;addBtn.innerHTML=cartSvg+' Agregar al carrito';qtyWrap.style.display='flex';}
+  else{stockEl.innerHTML=`<span class="pdp-stock-dot ok"></span><span style="color:var(--green)">En stock (${p.stock} disponibles)</span>`;addBtn.disabled=false;addBtn.innerHTML=cartSvg+' Agregar al carrito';qtyWrap.style.display='flex';}
+  document.getElementById('pdp-qty').value=1;
+  const allImgs=[p.img,...(p.extraImgs||[])].filter(Boolean);
+  const mainImgEl=document.getElementById('pdp-main-img');
+  const mainPh=document.getElementById('pdp-main-ph');
+  const thumbsEl=document.getElementById('pdp-thumbs');
+  thumbsEl.innerHTML='';
+  if(allImgs.length){
+    mainImgEl.src=allImgs[0];mainImgEl.style.display='block';mainPh.style.display='none';
+    if(allImgs.length>1){allImgs.forEach((url,ti)=>{const t=document.createElement('div');t.className='pdp-thumb'+(ti===0?' active':'');t.innerHTML=`<img src="${url}" alt="">`;t.onclick=()=>{mainImgEl.src=url;thumbsEl.querySelectorAll('.pdp-thumb').forEach(x=>x.classList.remove('active'));t.classList.add('active');};thumbsEl.appendChild(t);});}
+  }else{mainImgEl.style.display='none';mainPh.style.display='flex';}
+  document.getElementById('product-page').classList.add('open');
+  window.scrollTo(0,0);
+}
+function closeProductPage(){document.getElementById('product-page').classList.remove('open');}
+function pdpQtyChange(delta){const input=document.getElementById('pdp-qty');const p=data.products[currentPdpIdx];let val=parseInt(input.value)||1;val=Math.max(1,Math.min(p.stock||1,val+delta));input.value=val;}
+function pdpAddToCart(){
+  if(currentPdpIdx===null)return;
+  const qty=parseInt(document.getElementById('pdp-qty').value)||1;
+  const p=data.products[currentPdpIdx];
+  if(p.stock===0)return;
+  const ex=cart.find(i=>i.idx===currentPdpIdx);
+  if(ex){ex.qty=Math.min(p.stock,ex.qty+qty);}else{cart.push({idx:currentPdpIdx,name:p.name,price:p.priceNum||0,priceStr:p.price,img:p.img,qty});}
+  updateCartBadge();closeProductPage();openCart();
+}
 </body>
 </html>
