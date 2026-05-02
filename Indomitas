@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indomita Silver — Joyas de Plata</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0e0e0e;--charcoal:#1a1917;--surface:#222120;--gold:#c9a96e;--gold2:#e8d5a3;--muted:#8a8070;--border:#2e2b28;--red:#e74c3c;--green:#22c55e;--font-serif:'Cormorant Garamond',serif;--font-sans:'Montserrat',sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:var(--black);color:#f5f0e8;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+.topbar{background:var(--gold);color:var(--black);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:.5rem 1rem;font-weight:500;}
+nav{position:sticky;top:0;z-index:200;background:rgba(14,14,14,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:72px;}
+.nav-logo{display:flex;align-items:center;gap:1rem;cursor:pointer;}
+.nav-logo img{width:48px;height:48px;border-radius:50%;object-fit:cover;}
+.nav-logo-text{font-family:var(--font-serif);font-size:1.25rem;font-weight:600;letter-spacing:.05em;color:var(--gold);}
+.nav-logo-sub{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;}
+.nav-links{display:flex;list-style:none;gap:2.5rem;}
+.nav-links a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .2s;font-weight:500;}
+.nav-links a:hover{color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:.5rem;}
+.nav-icon{background:none;border:none;cursor:pointer;padding:.5rem;color:var(--muted);transition:color .2s;position:relative;}
+.nav-icon:hover{color:var(--gold);}
+.nav-icon svg{width:20px;height:20px;}
+.cart-badge{position:absolute;top:2px;right:2px;background:var(--gold);color:var(--black);font-size:.5rem;font-weight:700;width:14px;height:14px;border-radius:50%;display:none;align-items:center;justify-content:center;}
+.cart-badge.show{display:flex;}
+.nav-admin{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.38rem .9rem;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);transition:all .2s;}
+.nav-admin:hover{border-color:var(--gold);color:var(--gold);}
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.45;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,14,14,.85) 0%,rgba(14,14,14,.5) 50%,rgba(14,14,14,.8) 100%);}
+.hero-deco{position:absolute;inset:0;pointer-events:none;}
+.hero-deco::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4;}
+.hero-deco::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4;}
+.hero-content{position:relative;text-align:center;max-width:760px;padding:2rem;}
+.hero-eyebrow{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:500;}
+.hero-logo-img{width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 1.8rem;border:1px solid rgba(201,169,110,.3);box-shadow:0 0 40px rgba(201,169,110,.15);}
+.hero-title{font-family:var(--font-serif);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:1.05;color:#f5f0e8;margin-bottom:.6rem;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-subtitle{font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.4rem);font-weight:300;color:var(--gold2);letter-spacing:.25em;text-transform:uppercase;margin-bottom:.8rem;font-style:italic;}
+.hero-divider{width:60px;height:1px;background:var(--gold);margin:1.4rem auto;opacity:.6;}
+.hero-desc{font-size:.78rem;letter-spacing:.1em;color:var(--muted);line-height:2;margin-bottom:2.5rem;max-width:420px;margin-left:auto;margin-right:auto;}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--black);border:none;padding:.8rem 2.2rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:600;transition:all .25s;}
+.btn-gold:hover{background:var(--gold2);}
+.btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:.8rem 2.2rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:500;transition:all .25s;}
+.btn-ghost:hover{background:var(--gold);color:var(--black);}
+.promo-strip{background:var(--charcoal);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);}
+.promo-item{padding:1.4rem 2rem;border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:.9rem;}
+.promo-item:last-child{border-right:none;}
+.promo-icon{color:var(--gold);flex-shrink:0;opacity:.8;}
+.promo-text strong{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.15rem;font-weight:600;}
+.promo-text span{font-size:.7rem;color:var(--muted);}
+.section-wrap{padding:5rem 3rem;}
+.section-head{text-align:center;margin-bottom:3.5rem;}
+.section-eyebrow{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500;}
+.section-title{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#f5f0e8;}
+.section-title em{color:var(--gold);font-style:italic;}
+.section-rule{display:flex;align-items:center;gap:1rem;justify-content:center;margin-top:1rem;}
+.section-rule::before,.section-rule::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);opacity:.4;}
+.section-rule-diamond{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);opacity:.6;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--border);}
+.product-card{background:var(--charcoal);cursor:pointer;position:relative;overflow:hidden;transition:background .2s;}
+.product-card:hover{background:var(--surface);}
+.product-card:hover .product-img img{transform:scale(1.06);}
+.product-img{aspect-ratio:1;overflow:hidden;position:relative;background:var(--surface);}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.product-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;color:var(--border);}
+.product-badge-wrap{position:absolute;top:.9rem;left:.9rem;display:flex;flex-direction:column;gap:.3rem;}
+.product-badge{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;font-weight:600;font-family:var(--font-sans);}
+.product-badge.new{background:var(--gold);color:var(--black);}
+.product-badge.sale{background:transparent;border:1px solid var(--gold);color:var(--gold);}
+.stock-badge{position:absolute;bottom:.9rem;left:.9rem;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;font-weight:600;font-family:var(--font-sans);background:rgba(14,14,14,.85);}
+.stock-badge.low{color:#f59e0b;}
+.stock-badge.out{color:var(--red);}
+.stock-badge.ok{color:var(--green);}
+.wishlist-btn{position:absolute;top:.9rem;right:.9rem;background:rgba(14,14,14,.7);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:all .2s;}
+.product-card:hover .wishlist-btn{opacity:1;}
+.wishlist-btn:hover{border-color:var(--gold);color:var(--gold);}
+.product-info{padding:1.3rem 1.2rem;}
+.product-cat{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:500;}
+.product-name{font-family:var(--font-serif);font-size:1.15rem;font-weight:400;color:#f5f0e8;margin-bottom:.3rem;}
+.product-desc{font-size:.72rem;color:var(--muted);margin-bottom:.8rem;line-height:1.6;}
+.product-price-row{display:flex;align-items:center;justify-content:space-between;}
+.product-price{font-family:var(--font-serif);font-size:1.1rem;color:var(--gold2);}
+.old-price{text-decoration:line-through;color:var(--muted);font-size:.85rem;margin-right:.4rem;}
+.add-btn{background:transparent;border:1px solid var(--border);color:var(--muted);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0;}
+.add-btn:hover{border-color:var(--gold);color:var(--gold);}
+.add-btn:disabled{opacity:.3;cursor:not-allowed;}
+.add-text-btn{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:transparent;border:none;cursor:pointer;font-family:var(--font-sans);transition:color .2s;padding:.3rem 0;}
+.add-text-btn:hover{color:var(--gold);}
+.add-text-btn:disabled{opacity:.4;cursor:not-allowed;}
+.out-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);padding:.3rem 0;}
+#galeria{background:var(--charcoal);}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);}
+.gallery-item{aspect-ratio:1;overflow:hidden;cursor:pointer;position:relative;background:var(--surface);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.gallery-item:hover img{transform:scale(1.08);}
+.gallery-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--border);flex-direction:column;gap:.4rem;font-size:.72rem;}
+#contacto{background:var(--black);border-top:1px solid var(--border);}
+.contact-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.div-rule{width:60px;height:1px;background:var(--gold);opacity:.6;margin:1.2rem 0;}
+.contact-left p{font-size:.78rem;color:var(--muted);line-height:2;margin-top:1rem;}
+.contact-cards{display:flex;flex-direction:column;gap:.8rem;}
+.contact-card{border:1px solid var(--border);padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s;}
+.contact-card:hover{border-color:var(--gold);}
+.contact-card svg{color:var(--gold);opacity:.7;flex-shrink:0;}
+.contact-card strong{display:block;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);margin-bottom:.2rem;font-weight:600;}
+.contact-card span{font-size:.78rem;color:var(--muted);}
+.whatsapp-btn{background:#25D366;color:#fff;border:none;padding:1rem 1.5rem;display:flex;align-items:center;gap:.7rem;cursor:pointer;font-family:var(--font-sans);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;width:100%;justify-content:center;transition:opacity .2s;text-decoration:none;}
+.whatsapp-btn:hover{opacity:.88;}
+footer{background:var(--charcoal);border-top:1px solid var(--border);}
+.footer-main{max-width:1100px;margin:0 auto;padding:3.5rem 3rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;}
+.footer-brand img{width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:1rem;}
+.footer-brand-name{font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);margin-bottom:.2rem;}
+.footer-brand-sub{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+.footer-brand-desc{font-size:.72rem;color:var(--muted);line-height:1.8;margin-top:.8rem;}
+.footer-col h4{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:600;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:.5rem;}
+.footer-col ul li a{font-size:.72rem;color:var(--muted);transition:color .2s;}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid var(--border);padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:var(--muted);}
+.cart-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;backdrop-filter:blur(3px);}
+.cart-overlay.open{display:block;}
+.cart-drawer{position:fixed;top:0;right:-440px;width:440px;max-width:100vw;height:100vh;background:var(--charcoal);z-index:401;border-left:1px solid var(--border);transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+.cart-drawer.open{right:0;}
+.cart-header{padding:1.5rem 1.8rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.cart-header h2{font-family:var(--font-serif);font-size:1.4rem;font-weight:300;color:var(--gold);}
+.cart-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.2rem;}
+.cart-close:hover{color:var(--gold);}
+.cart-items{flex:1;overflow-y:auto;padding:1rem 1.8rem;}
+.cart-empty{text-align:center;color:var(--muted);font-family:var(--font-serif);font-style:italic;font-size:1rem;padding:3rem 0;}
+.cart-item{display:flex;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--border);}
+.cart-item-img{width:70px;height:70px;background:var(--surface);flex-shrink:0;overflow:hidden;}
+.cart-item-img img{width:100%;height:100%;object-fit:cover;}
+.cart-item-info{flex:1;}
+.cart-item-name{font-family:var(--font-serif);font-size:.95rem;color:#f5f0e8;margin-bottom:.2rem;}
+.cart-item-price{font-size:.78rem;color:var(--gold);}
+.cart-item-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem;}
+.cart-item-remove:hover{color:var(--gold);}
+.cart-footer{padding:1.5rem 1.8rem;border-top:1px solid var(--border);}
+.cart-total{display:flex;justify-content:space-between;font-family:var(--font-serif);font-size:1.1rem;color:#f5f0e8;margin-bottom:1.2rem;}
+.cart-total span:last-child{color:var(--gold);}
+.btn-checkout-cart{width:100%;background:var(--gold);color:var(--black);border:none;padding:.9rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:600;transition:background .2s;}
+.btn-checkout-cart:hover{background:var(--gold2);}
+#checkout-page{display:none;position:fixed;inset:0;background:var(--black);z-index:500;overflow-y:auto;}
+#checkout-page.open{display:block;}
+.checkout-bar{background:var(--charcoal);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;position:sticky;top:0;z-index:10;}
+.checkout-bar-brand{font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);font-style:italic;}
+.checkout-back-btn{background:none;border:none;color:var(--muted);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);}
+.checkout-back-btn:hover{color:var(--gold);}
+.checkout-body{max-width:960px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:1fr 360px;gap:3rem;align-items:start;}
+.checkout-left h2{font-family:var(--font-serif);font-size:1.8rem;font-weight:300;color:var(--gold);margin-bottom:2rem;font-style:italic;}
+.form-section{margin-bottom:2rem;}
+.form-section h3{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border);font-weight:600;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-row.full{grid-template-columns:1fr;}
+.form-group label{display:block;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:500;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--charcoal);border:1px solid var(--border);color:#f5f0e8;padding:.65rem .9rem;font-size:.85rem;font-family:var(--font-sans);transition:border-color .2s;-webkit-appearance:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);}
+.form-group select option{background:var(--charcoal);}
+.form-group textarea{resize:vertical;min-height:80px;}
+.form-group.error input,.form-group.error select{border-color:var(--red);}
+.form-error-msg{font-size:.65rem;color:var(--red);margin-top:.25rem;display:none;}
+.form-group.error .form-error-msg{display:block;}
+.checkout-right{background:var(--charcoal);border:1px solid var(--border);padding:1.8rem;position:sticky;top:80px;}
+.order-summary-title{font-family:var(--font-serif);font-size:1.2rem;font-weight:300;color:var(--gold);margin-bottom:1.2rem;font-style:italic;}
+.order-item{display:flex;gap:.8rem;padding:.7rem 0;border-bottom:1px solid var(--border);}
+.order-item-img{width:52px;height:52px;background:var(--surface);flex-shrink:0;}
+.order-item-img img{width:100%;height:100%;object-fit:cover;}
+.order-item-name{font-family:var(--font-serif);font-size:.88rem;color:#f5f0e8;margin-bottom:.15rem;}
+.order-item-price{font-size:.75rem;color:var(--gold);}
+.order-totals{margin-top:1rem;}
+.order-row{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-bottom:.4rem;}
+.order-row.total{font-family:var(--font-serif);font-size:1.1rem;color:#f5f0e8;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--border);}
+.order-row.total span:last-child{color:var(--gold);}
+.btn-pay{width:100%;background:var(--gold);color:var(--black);border:none;padding:1rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:600;margin-top:1.2rem;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:background .2s;}
+.btn-pay:hover{background:var(--gold2);}
+.btn-pay:disabled{opacity:.5;cursor:not-allowed;}
+.pay-note{font-size:.65rem;color:var(--muted);text-align:center;margin-top:.8rem;line-height:1.6;}
+.pay-icons{display:flex;gap:.4rem;justify-content:center;margin-top:.6rem;}
+.pay-icon{border:1px solid var(--border);padding:.2rem .5rem;font-size:.58rem;color:var(--muted);}
+.checkout-err{background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);color:var(--red);padding:.7rem 1rem;font-size:.75rem;margin-bottom:1rem;display:none;}
+.checkout-err.show{display:block;}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;}
+.modal-overlay.active{display:flex;}
+.modal-box{background:var(--charcoal);border:1px solid var(--border);padding:2.8rem;width:90%;max-width:380px;position:relative;}
+.modal-title{font-family:var(--font-serif);font-size:1.5rem;font-weight:300;color:var(--gold);margin-bottom:.2rem;font-style:italic;}
+.modal-sub{font-size:.72rem;color:var(--muted);margin-bottom:2rem;}
+.modal-err{color:var(--red);font-size:.72rem;margin-bottom:.8rem;display:none;}
+.modal-close{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;}
+.modal-close:hover{color:var(--gold);}
+.mfg{margin-bottom:1.1rem;}
+.mfg label{display:block;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.mfg input{width:100%;background:var(--surface);border:1px solid var(--border);color:#f5f0e8;padding:.65rem .9rem;font-size:.88rem;font-family:var(--font-sans);transition:border-color .2s;}
+.mfg input:focus{outline:none;border-color:var(--gold);}
+.btn-modal{width:100%;background:var(--gold);color:var(--black);border:none;padding:.8rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:600;transition:background .2s;}
+.btn-modal:hover{background:var(--gold2);}
+.modal-hint{font-size:.65rem;color:var(--muted);margin-top:.8rem;text-align:center;line-height:1.6;}
+/* ═══════════════ ADMIN PANEL — ADVANCED ═══════════════ */
+#admin-panel{display:none;position:fixed;inset:0;z-index:600;background:#0a0a0a;overflow:hidden;flex-direction:column;}
+#admin-panel.open{display:flex;}
+
+/* TOP BAR */
+.admin-bar{background:rgba(26,25,23,.98);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;flex-shrink:0;backdrop-filter:blur(12px);}
+.admin-bar-left{display:flex;align-items:center;gap:1.2rem;}
+.admin-bar-brand{font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);font-style:italic;white-space:nowrap;}
+.admin-bar-badge{background:var(--gold);color:var(--black);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .55rem;font-weight:700;font-family:var(--font-sans);}
+.admin-bar-right{display:flex;gap:.5rem;align-items:center;}
+.btn-asave{background:var(--gold);color:var(--black);border:none;padding:.45rem 1.2rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:700;transition:background .2s;}
+.btn-asave:hover{background:var(--gold2);}
+.btn-apreview{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.45rem 1rem;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);font-weight:500;transition:all .2s;}
+.btn-apreview:hover{background:var(--gold);color:var(--black);}
+.btn-aback{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.45rem 1rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);transition:all .2s;}
+.btn-aback:hover{border-color:var(--muted);color:#f5f0e8;}
+
+/* LAYOUT: SIDEBAR + CONTENT */
+.admin-layout{display:flex;flex:1;overflow:hidden;}
+
+/* SIDEBAR NAV */
+.admin-sidebar{width:200px;background:rgba(26,25,23,.6);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;}
+.admin-nav-section{padding:.8rem 1rem .3rem;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;opacity:.6;}
+.admin-nav-item{display:flex;align-items:center;gap:.7rem;padding:.65rem 1rem;cursor:pointer;font-size:.72rem;color:var(--muted);letter-spacing:.05em;transition:all .15s;border-left:2px solid transparent;font-family:var(--font-sans);}
+.admin-nav-item:hover{color:#f5f0e8;background:rgba(201,169,110,.05);}
+.admin-nav-item.active{color:var(--gold);border-left-color:var(--gold);background:rgba(201,169,110,.08);}
+.admin-nav-item svg{flex-shrink:0;opacity:.7;}
+.admin-nav-item.active svg{opacity:1;}
+
+/* MAIN CONTENT */
+.admin-content{flex:1;overflow-y:auto;background:#0f0e0d;}
+.admin-tab{display:none;padding:2rem;max-width:980px;}
+.admin-tab.active{display:block;}
+
+/* SECTIONS */
+.admin-section{background:var(--charcoal);border:1px solid var(--border);padding:1.6rem;margin-bottom:1rem;border-radius:2px;}
+.admin-section-title{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;justify-content:space-between;}
+.admin-section-subtitle{font-size:.65rem;color:var(--muted);margin:-1rem 0 1rem;font-weight:400;letter-spacing:normal;text-transform:none;}
+
+/* FORM FIELDS */
+.af{margin-bottom:1rem;}
+.af label{display:block;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem;font-weight:500;}
+.af input,.af textarea,.af select{width:100%;background:var(--surface);border:1px solid var(--border);color:#f5f0e8;padding:.6rem .85rem;font-size:.85rem;font-family:var(--font-sans);transition:border-color .2s;}
+.af input:focus,.af textarea:focus,.af select:focus{outline:none;border-color:var(--gold);}
+.af textarea{resize:vertical;min-height:70px;}
+.af select option{background:var(--charcoal);}
+.af-hint{font-size:.62rem;color:var(--muted);margin-top:.25rem;opacity:.7;}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.agrid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;}
+
+/* TOGGLE SWITCH */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0;}
+.toggle-label{font-size:.72rem;color:#f5f0e8;letter-spacing:.05em;}
+.toggle-sub{font-size:.62rem;color:var(--muted);margin-top:.1rem;}
+.toggle-switch{position:relative;width:38px;height:20px;flex-shrink:0;}
+.toggle-switch input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:var(--border);cursor:pointer;transition:.3s;border-radius:20px;}
+.toggle-slider::before{content:'';position:absolute;height:14px;width:14px;left:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;}
+.toggle-switch input:checked+.toggle-slider{background:var(--gold);}
+.toggle-switch input:checked+.toggle-slider::before{transform:translateX(18px);}
+
+/* COLOR PICKER */
+.color-field{display:flex;gap:.5rem;align-items:center;}
+.color-field input[type=color]{width:36px;height:36px;border:1px solid var(--border);cursor:pointer;padding:2px;background:var(--surface);}
+.color-field input[type=text]{flex:1;}
+
+/* HERO IMAGE EDITOR */
+.hero-editor{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
+.hero-preview-box{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--border);background:var(--black);}
+.hero-preview-box img{width:100%;height:100%;object-fit:cover;}
+.hero-preview-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,14,14,.7) 0%,rgba(14,14,14,.3) 60%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;}
+.hero-preview-label{font-family:var(--font-serif);font-size:1.4rem;color:#f5f0e8;font-style:italic;}
+.hero-preview-sublabel{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.hero-preview-badge{position:absolute;top:.5rem;left:.5rem;background:var(--gold);color:var(--black);font-size:.52rem;letter-spacing:.1em;padding:.18rem .5rem;text-transform:uppercase;font-weight:700;}
+
+/* DRAG & DROP UPLOAD */
+.drop-zone{border:2px dashed var(--border);padding:2rem 1rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;}
+.drop-zone:hover,.drop-zone.dragover{border-color:var(--gold);background:rgba(201,169,110,.04);}
+.drop-zone-icon{color:var(--muted);margin-bottom:.6rem;opacity:.5;}
+.drop-zone-text{font-size:.72rem;color:var(--muted);line-height:1.6;}
+.drop-zone-text strong{display:block;color:#f5f0e8;margin-bottom:.2rem;font-size:.78rem;}
+.drop-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+
+/* IMAGE GRID PREVIEW */
+.img-grid-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:.5rem;margin-top:.8rem;}
+.img-grid-thumb{position:relative;aspect-ratio:1;overflow:hidden;border:1px solid var(--border);cursor:pointer;}
+.img-grid-thumb img{width:100%;height:100%;object-fit:cover;}
+.img-grid-thumb.selected{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold);}
+.img-grid-thumb .thumb-del{position:absolute;top:.2rem;right:.2rem;background:rgba(0,0,0,.7);border:none;color:var(--red);width:18px;height:18px;font-size:.7rem;cursor:pointer;display:none;align-items:center;justify-content:center;}
+.img-grid-thumb:hover .thumb-del{display:flex;}
+.img-grid-thumb .thumb-use{position:absolute;bottom:.2rem;left:.2rem;right:.2rem;background:var(--gold);border:none;color:var(--black);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:.15rem .3rem;display:none;font-family:var(--font-sans);font-weight:700;}
+.img-grid-thumb:hover .thumb-use{display:block;}
+
+/* PRODUCT ADMIN CARDS */
+.product-admin-card{background:var(--surface);border:1px solid var(--border);padding:1.2rem;margin-bottom:.8rem;transition:border-color .2s;}
+.product-admin-card:hover{border-color:rgba(201,169,110,.3);}
+.product-admin-card.collapsed .pac-body{display:none;}
+.pah{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;cursor:pointer;}
+.pan{display:flex;align-items:center;gap:.7rem;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+.pan-img{width:32px;height:32px;object-fit:cover;border:1px solid var(--border);}
+.pan-img-ph{width:32px;height:32px;background:var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);}
+.pah-right{display:flex;gap:.4rem;align-items:center;}
+.pan-collapse{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem;padding:.2rem;}
+.btn-del{background:none;border:1px solid rgba(231,76,60,.3);color:var(--red);padding:.25rem .65rem;font-size:.65rem;cursor:pointer;font-family:var(--font-sans);transition:all .2s;}
+.btn-del:hover{background:var(--red);color:#fff;border-color:var(--red);}
+.btn-add{width:100%;border:1px dashed var(--border);background:none;padding:.75rem;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);color:var(--muted);margin-top:.5rem;transition:all .2s;}
+.btn-add:hover{border-color:var(--gold);color:var(--gold);}
+
+/* IMG UPLOAD IN PRODUCT */
+.img-upload-area{border:1px dashed var(--border);padding:.8rem;text-align:center;position:relative;transition:all .2s;}
+.img-upload-area:hover{border-color:rgba(201,169,110,.4);}
+.img-preview{width:100%;height:120px;object-fit:cover;display:block;margin-bottom:.5rem;}
+.img-preview-ph{width:100%;height:80px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;flex-direction:column;gap:.3rem;margin-bottom:.5rem;}
+.btn-upload{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.35rem .7rem;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);transition:all .2s;width:100%;margin-bottom:.3rem;}
+.btn-upload:hover{border-color:var(--gold);color:var(--gold);}
+.upload-input{display:none;}
+.upload-status{font-size:.62rem;color:var(--gold);margin-top:.25rem;min-height:16px;text-align:center;}
+
+/* GALLERY ADMIN */
+.gallery-admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem;}
+.gallery-admin-item{border:1px solid var(--border);padding:.7rem;background:var(--surface);transition:border-color .2s;}
+.gallery-admin-item:hover{border-color:rgba(201,169,110,.3);}
+.gallery-admin-item label{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.3rem;color:var(--muted);}
+.gallery-admin-item input{width:100%;background:var(--black);border:1px solid var(--border);color:#f5f0e8;padding:.4rem .6rem;font-size:.72rem;font-family:var(--font-sans);margin-bottom:.4rem;}
+.gallery-admin-item input:focus{outline:none;border-color:var(--gold);}
+.gai-img{aspect-ratio:1;overflow:hidden;margin-bottom:.5rem;background:var(--black);position:relative;}
+.gai-img img{width:100%;height:100%;object-fit:cover;}
+
+/* STATS CARDS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:1.5rem;}
+.stat-card{background:var(--charcoal);border:1px solid var(--border);padding:1rem 1.2rem;}
+.stat-label{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.stat-value{font-family:var(--font-serif);font-size:1.6rem;color:var(--gold2);font-weight:300;}
+.stat-sub{font-size:.65rem;color:var(--muted);margin-top:.2rem;}
+
+/* SOCIAL LINKS */
+.social-row{display:flex;gap:.5rem;align-items:center;margin-bottom:.6rem;}
+.social-icon-badge{width:28px;height:28px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);flex-shrink:0;font-size:.7rem;}
+
+/* UNSAVED INDICATOR */
+.unsaved-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:none;}
+.unsaved-dot.show{display:inline-block;}
+
+/* FONT SELECT */
+.font-preview{font-size:1.2rem;margin-top:.5rem;color:var(--gold2);padding:.5rem;background:var(--surface);border:1px solid var(--border);}
+
+/* ORDER BADGE */
+.orders-empty{text-align:center;padding:3rem;color:var(--muted);font-family:var(--font-serif);font-style:italic;}
+
+/* LIVE PREVIEW BADGE */
+.live-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:.8rem;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-green 1.5s infinite;}
+@keyframes pulse-green{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* BULK ACTIONS */
+.bulk-bar{display:flex;gap:.5rem;align-items:center;padding:.6rem .8rem;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.2);margin-bottom:.8rem;}
+.bulk-bar span{font-size:.65rem;color:var(--gold);flex:1;letter-spacing:.05em;}
+
+/* PROGRESS BAR */
+.upload-progress{height:2px;background:var(--border);margin-top:.3rem;overflow:hidden;display:none;}
+.upload-progress.show{display:block;}
+.upload-progress-bar{height:100%;width:0;background:var(--gold);transition:width .3s;}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--gold);color:var(--black);padding:.7rem 2rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;font-family:var(--font-sans);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+@media(max-width:768px){
+  .nav-inner{padding:0 1.5rem;}.nav-links{display:none;}.section-wrap{padding:3.5rem 1.5rem;}
+  .checkout-body{grid-template-columns:1fr;}.checkout-right{position:static;}
+  .contact-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .promo-strip{grid-template-columns:1fr;}.promo-item{border-right:none;border-bottom:1px solid var(--border);}
+  .footer-main{grid-template-columns:1fr 1fr;gap:2rem;padding:2.5rem 1.5rem;}
+  .agrid,.form-row{grid-template-columns:1fr;}
+  .hero-ctas{flex-direction:column;align-items:center;}
+  .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;padding:1rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar-text">Envío gratis en compras sobre $40.000 · Plata 925 certificada</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="window.scrollTo(0,0)">
+      <img id="nav-logo-img" src="logo.jpeg" alt="Indomita Silver">
+      <div>
+        <span class="nav-logo-text" id="nav-logo-text-el">Indomita Silver</span>
+        <span class="nav-logo-sub">Joyas de Plata</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#catalogo">Colección</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-icon" onclick="openCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+      <button class="nav-admin" onclick="openLoginModal()">Admin</button>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"><img id="hero-bg-img" src="hero.jpeg" alt="Indomita Silver"></div>
+  <div class="hero-overlay"></div><div class="hero-deco"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" id="hero-eyebrow-text">Colección 2025</div>
+    <img class="hero-logo-img" src="logo.jpeg" alt="Logo">
+    <h1 class="hero-title">Indomita <em>Silver</em></h1>
+    <div class="hero-subtitle">Joyas de Plata</div>
+    <div class="hero-divider"></div>
+    <p class="hero-desc" id="hero-desc-text">Piezas únicas elaboradas en plata 925. Elegancia atemporal para quienes se atreven a brillar.</p>
+    <div class="hero-ctas">
+      <button class="btn-gold" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver colección</button>
+      <button class="btn-ghost" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contactar</button>
+    </div>
+  </div>
+</section>
+
+<div class="promo-strip">
+  <div class="promo-item"><svg class="promo-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8zM5.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg><div class="promo-text"><strong>Envío gratis</strong><span id="promo1-text">En compras sobre $40.000</span></div></div>
+  <div class="promo-item"><svg class="promo-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div class="promo-text"><strong>Plata certificada</strong><span id="promo2-text">925 milésimas garantizadas</span></div></div>
+  <div class="promo-item"><svg class="promo-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg><div class="promo-text"><strong>Devoluciones</strong><span id="promo3-text">Sin costo por 30 días</span></div></div>
+</div>
+
+<section id="catalogo" class="section-wrap">
+  <div class="section-head">
+    <div class="section-eyebrow">Nuestra selección</div>
+    <h2 class="section-title">Colección <em>Exclusiva</em></h2>
+    <div class="section-rule"><div class="section-rule-diamond"></div></div>
+  </div>
+  <div class="products-grid" id="products-grid"></div>
+</section>
+
+<section id="galeria" class="section-wrap">
+  <div class="section-head">
+    <div class="section-eyebrow">Inspiración</div>
+    <h2 class="section-title">Nuestra <em>Galería</em></h2>
+    <div class="section-rule"><div class="section-rule-diamond"></div></div>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<section id="contacto" class="section-wrap">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-eyebrow">Estamos aquí</div>
+      <h2 class="section-title" style="text-align:left">Háblanos<br><em>con confianza</em></h2>
+      <div class="div-rule"></div>
+      <p id="contact-text-el">¿Tienes preguntas sobre nuestras joyas? Escríbenos por WhatsApp o email y te respondemos al instante.</p>
+    </div>
+    <div class="contact-cards">
+      <a class="whatsapp-btn" id="whatsapp-link" href="https://wa.me/56900000000" target="_blank">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <div class="contact-card"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div><strong>Email</strong><span id="contact-email-el">contacto@indomitasilver.cl</span></div></div>
+      <div class="contact-card"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><strong>Ubicación</strong><span id="contact-location-el">Santiago, Chile</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img id="footer-logo-img" src="logo.jpeg" alt="Logo">
+      <div class="footer-brand-name" id="footer-brand-name-el">Indomita Silver</div>
+      <div class="footer-brand-sub" id="footer-brand-sub-el">Joyas de Plata</div>
+      <p class="footer-brand-desc" id="footer-brand-desc-el">Piezas únicas en plata 925. Elegancia y distinción en cada joya.</p>
+    </div>
+    <div class="footer-col"><h4 id="footer-col1-title-el">Tienda</h4><ul id="footer-col1-links"></ul></div>
+    <div class="footer-col"><h4 id="footer-col2-title-el">Ayuda</h4><ul id="footer-col2-links"></ul></div>
+    <div class="footer-col"><h4 id="footer-col3-title-el">Síguenos</h4><ul id="footer-col3-links"></ul></div>
+  </div>
+  <div class="footer-bottom"><span id="footer-copy-text">© 2025 Indomita Silver · Todos los derechos reservados</span><span id="footer-copy-right-el">Plata 925 · Chile 🇨🇱</span></div>
+</footer>
+
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header"><h2>Tu selección</h2><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="cart-total-text">$0</span></div>
+    <button class="btn-checkout-cart" onclick="goToCheckout()">Finalizar compra →</button>
+  </div>
+</div>
+
+<div id="checkout-page">
+  <div class="checkout-bar">
+    <div class="checkout-bar-brand">Indomita Silver</div>
+    <button class="checkout-back-btn" onclick="closeCheckout()">← Volver</button>
+  </div>
+  <div class="checkout-body">
+    <div class="checkout-left">
+      <h2>Datos de envío</h2>
+      <div class="checkout-err" id="checkout-error"></div>
+      <div class="form-section">
+        <h3>Información personal</h3>
+        <div class="form-row">
+          <div class="form-group" id="fg-nombre"><label>Nombre</label><input type="text" id="f-nombre" placeholder="María"><div class="form-error-msg">Campo requerido</div></div>
+          <div class="form-group" id="fg-apellido"><label>Apellido</label><input type="text" id="f-apellido" placeholder="González"><div class="form-error-msg">Campo requerido</div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group" id="fg-email"><label>Email</label><input type="email" id="f-email" placeholder="maria@email.com"><div class="form-error-msg">Email válido requerido</div></div>
+          <div class="form-group" id="fg-telefono"><label>Teléfono</label><input type="tel" id="f-telefono" placeholder="+56 9 1234 5678"><div class="form-error-msg">Campo requerido</div></div>
+        </div>
+      </div>
+      <div class="form-section">
+        <h3>Dirección de envío</h3>
+        <div class="form-row full"><div class="form-group" id="fg-direccion"><label>Dirección</label><input type="text" id="f-direccion" placeholder="Av. Providencia 1234, Dpto 5"><div class="form-error-msg">Campo requerido</div></div></div>
+        <div class="form-row">
+          <div class="form-group" id="fg-ciudad"><label>Ciudad</label><input type="text" id="f-ciudad" placeholder="Santiago"><div class="form-error-msg">Campo requerido</div></div>
+          <div class="form-group" id="fg-region"><label>Región</label>
+            <select id="f-region"><option value="">Selecciona tu región</option><option>Región Metropolitana</option><option>Arica y Parinacota</option><option>Tarapacá</option><option>Antofagasta</option><option>Atacama</option><option>Coquimbo</option><option>Valparaíso</option><option>O'Higgins</option><option>Maule</option><option>Ñuble</option><option>Biobío</option><option>La Araucanía</option><option>Los Ríos</option><option>Los Lagos</option><option>Aysén</option><option>Magallanes</option></select>
+            <div class="form-error-msg">Selecciona una región</div>
+          </div>
+        </div>
+        <div class="form-row full"><div class="form-group"><label>Notas del pedido (opcional)</label><textarea id="f-notas" placeholder="Instrucciones especiales, si es regalo..."></textarea></div></div>
+      </div>
+    </div>
+    <div class="checkout-right">
+      <div class="order-summary-title">Resumen del pedido</div>
+      <div id="order-items-list"></div>
+      <div class="order-totals">
+        <div class="order-row"><span>Subtotal</span><span id="order-subtotal">$0</span></div>
+        <div class="order-row"><span>Envío</span><span>Por calcular</span></div>
+        <div class="order-row total"><span>Total</span><span id="order-total">$0</span></div>
+      </div>
+      <button class="btn-pay" id="pay-btn" onclick="submitPayment()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Pagar con Flow
+      </button>
+      <div class="pay-icons"><span class="pay-icon">VISA</span><span class="pay-icon">MC</span><span class="pay-icon">AMEX</span><span class="pay-icon">Débito</span><span class="pay-icon">Transf.</span></div>
+      <p class="pay-note">Serás redirigido a Flow para completar tu pago de forma segura.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="login-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLoginModal()">✕</button>
+    <div class="modal-title">Administración</div>
+    <div class="modal-sub">Ingresa tus credenciales para continuar</div>
+    <div class="modal-err" id="login-error">Usuario o contraseña incorrectos.</div>
+    <div class="mfg"><label>Usuario</label><input type="text" id="login-user" placeholder="admin"></div>
+    <div class="mfg"><label>Contraseña</label><input type="password" id="login-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <button class="btn-modal" onclick="doLogin()">Ingresar</button>
+    <p class="modal-hint">Por defecto: <strong style="color:var(--gold2)">admin</strong> / <strong style="color:var(--gold2)">tienda123</strong></p>
+  </div>
+</div>
+
+<div id="admin-panel">
+  <!-- TOP BAR -->
+  <div class="admin-bar">
+    <div class="admin-bar-left">
+      <span class="admin-bar-brand">Indomita Silver</span>
+      <span class="admin-bar-badge">Admin</span>
+      <span class="unsaved-dot" id="unsaved-dot" title="Cambios sin guardar"></span>
+    </div>
+    <div class="admin-bar-right">
+      <button class="btn-apreview" onclick="previewSite()">⊙ Vista previa</button>
+      <button class="btn-asave" onclick="saveAll()">✓ Guardar cambios</button>
+      <button class="btn-aback" onclick="closeAdmin()">← Salir</button>
+    </div>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <nav class="admin-sidebar">
+      <div class="admin-nav-section">Resumen</div>
+      <div class="admin-nav-item active" onclick="switchTab('tab-dashboard',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard
+      </div>
+      <div class="admin-nav-section">Contenido</div>
+      <div class="admin-nav-item" onclick="switchTab('tab-hero',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Portada
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('tab-general',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 4.93 19.07M4.93 4.93a10 10 0 0 0 14.14 14.14"/></svg> General
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('tab-products',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg> Productos
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('tab-gallery',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> Galería
+      </div>
+      <div class="admin-nav-section">Configuración</div>
+      <div class="admin-nav-item" onclick="switchTab('tab-contact',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg> Contacto
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('tab-appearance',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg> Apariencia
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('tab-social',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Redes Sociales
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('tab-security',this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Seguridad
+      </div>
+    </nav>
+
+    <!-- CONTENT AREA -->
+    <div class="admin-content">
+
+      <!-- ── DASHBOARD ── -->
+      <div class="admin-tab active" id="tab-dashboard">
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Productos</div><div class="stat-value" id="stat-products">0</div><div class="stat-sub">en catálogo</div></div>
+          <div class="stat-card"><div class="stat-label">Stock total</div><div class="stat-value" id="stat-stock">0</div><div class="stat-sub">unidades</div></div>
+          <div class="stat-card"><div class="stat-label">Galería</div><div class="stat-value" id="stat-gallery">0</div><div class="stat-sub">imágenes</div></div>
+          <div class="stat-card"><div class="stat-label">Sin stock</div><div class="stat-value" id="stat-out" style="color:var(--red)">0</div><div class="stat-sub">productos agotados</div></div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">Accesos rápidos</div>
+          <div class="agrid3">
+            <button class="btn-add" style="padding:1.2rem;margin:0" onclick="switchTab('tab-hero',document.querySelector('[onclick*=tab-hero]'))">🖼 Cambiar portada</button>
+            <button class="btn-add" style="padding:1.2rem;margin:0" onclick="switchTab('tab-products',document.querySelector('[onclick*=tab-products]'))">+ Agregar producto</button>
+            <button class="btn-add" style="padding:1.2rem;margin:0" onclick="switchTab('tab-gallery',document.querySelector('[onclick*=tab-gallery]'))">📷 Gestionar galería</button>
+          </div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">Productos con bajo stock</div>
+          <div id="low-stock-list"><div class="orders-empty">Sin alertas de stock</div></div>
+        </div>
+      </div>
+
+      <!-- ── PORTADA (HERO) ── -->
+      <div class="admin-tab" id="tab-hero">
+        <div class="admin-section">
+          <div class="admin-section-title">Imagen de portada</div>
+          <div class="live-label"><span class="live-dot"></span> Vista previa en tiempo real</div>
+          <div class="hero-editor">
+            <div>
+              <div class="hero-preview-box" id="hero-preview-container">
+                <img id="hero-preview-img" src="hero.jpeg" alt="Portada" style="object-fit:cover">
+                <div class="hero-preview-overlay">
+                  <div class="hero-preview-label" id="hp-title-preview">Indomita <em>Silver</em></div>
+                  <div class="hero-preview-sublabel" id="hp-eyebrow-preview">Colección 2025</div>
+                </div>
+                <div class="hero-preview-badge">Vista previa</div>
+              </div>
+              <div style="margin-top:.6rem;font-size:.62rem;color:var(--muted);text-align:center">Previsualización 16:9 de la portada</div>
+            </div>
+            <div>
+              <div class="af">
+                <label>Imagen principal de fondo</label>
+                <div class="drop-zone" id="hero-drop-zone">
+                  <input type="file" accept="image/*" onchange="handleHeroBgUpload(event)">
+                  <div class="drop-zone-icon">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                  </div>
+                  <div class="drop-zone-text"><strong>Arrastra una imagen aquí</strong>o haz clic para seleccionar<br><span style="font-size:.6rem;opacity:.6">JPG, PNG, WEBP · Recomendado: 1920×1080px</span></div>
+                </div>
+                <div class="upload-progress" id="hero-progress"><div class="upload-progress-bar" id="hero-progress-bar"></div></div>
+                <div class="upload-status" id="hero-status"></div>
+              </div>
+              <div class="af" style="margin-top:.5rem">
+                <label>O pega una URL directamente</label>
+                <input type="text" id="a-hero-bg-url" placeholder="https://..." oninput="liveHeroBg(this.value)">
+              </div>
+              <div class="af">
+                <label>Imagen del logo (centro del hero)</label>
+                <div class="img-upload-area">
+                  <img id="hero-logo-preview" src="logo.jpeg" style="height:80px;object-fit:contain;margin:0 auto .5rem;display:block">
+                  <input type="file" id="hero-logo-input" class="upload-input" accept="image/*" onchange="handleHeroLogoUpload(event)">
+                  <button class="btn-upload" onclick="document.getElementById('hero-logo-input').click()">📁 Cambiar logo</button>
+                  <div class="upload-status" id="hero-logo-status"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-title">Textos de portada</div>
+          <div class="agrid">
+            <div class="af"><label>Etiqueta superior (eyebrow)</label><input type="text" id="a-hero-eyebrow" oninput="document.getElementById('hp-eyebrow-preview').textContent=this.value;markUnsaved()"></div>
+            <div class="af"><label>Descripción bajo el título</label><input type="text" id="a-hero-desc" oninput="markUnsaved()"></div>
+          </div>
+          <div class="agrid">
+            <div class="af"><label>Texto botón principal</label><input type="text" id="a-hero-btn1" placeholder="Ver colección" oninput="markUnsaved()"></div>
+            <div class="af"><label>Texto botón secundario</label><input type="text" id="a-hero-btn2" placeholder="Contactar" oninput="markUnsaved()"></div>
+          </div>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-title">Barra de anuncio</div>
+          <div class="af"><label>Texto de la barra dorada superior</label><input type="text" id="a-topbar" oninput="markUnsaved()"></div>
+          <div class="af">
+            <label>Mostrar barra</label>
+            <div class="toggle-row">
+              <div><div class="toggle-label">Barra de anuncio visible</div><div class="toggle-sub">Muestra el texto en la franja dorada superior</div></div>
+              <label class="toggle-switch"><input type="checkbox" id="a-topbar-visible" checked onchange="markUnsaved()"><span class="toggle-slider"></span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── GENERAL ── -->
+      <div class="admin-tab" id="tab-general">
+        <div class="admin-section">
+          <div class="admin-section-title">Marca</div>
+          <div class="agrid">
+            <div class="af"><label>Nombre de la marca</label><input type="text" id="a-brand-name" oninput="markUnsaved()"></div>
+            <div class="af"><label>Slogan (pie de logo)</label><input type="text" id="a-brand-slogan" placeholder="Joyas de Plata" oninput="markUnsaved()"></div>
+          </div>
+          <div class="af"><label>Descripción del footer</label><textarea id="a-footer-desc" rows="2" oninput="markUnsaved()"></textarea></div>
+          <div class="af"><label>Texto copyright</label><input type="text" id="a-footer-copy" oninput="markUnsaved()"></div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">Tiras promocionales</div>
+          <div class="admin-section-subtitle">Los tres puntos destacados debajo del hero</div>
+          <div class="agrid">
+            <div class="af"><label>✦ Promo 1 — Título</label><input type="text" id="a-promo1-title" placeholder="Envío gratis" oninput="markUnsaved()"></div>
+            <div class="af"><label>Subtexto</label><input type="text" id="a-promo1" oninput="markUnsaved()"></div>
+          </div>
+          <div class="agrid">
+            <div class="af"><label>✦ Promo 2 — Título</label><input type="text" id="a-promo2-title" placeholder="Plata certificada" oninput="markUnsaved()"></div>
+            <div class="af"><label>Subtexto</label><input type="text" id="a-promo2" oninput="markUnsaved()"></div>
+          </div>
+          <div class="agrid">
+            <div class="af"><label>✦ Promo 3 — Título</label><input type="text" id="a-promo3-title" placeholder="Devoluciones" oninput="markUnsaved()"></div>
+            <div class="af"><label>Subtexto</label><input type="text" id="a-promo3" oninput="markUnsaved()"></div>
+          </div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">SEO &amp; Metadatos</div>
+          <div class="af"><label>Título de la página (tab del navegador)</label><input type="text" id="a-seo-title" placeholder="Indomita Silver — Joyas de Plata" oninput="markUnsaved()"></div>
+          <div class="af"><label>Descripción meta</label><textarea id="a-seo-desc" rows="2" placeholder="Piezas únicas en plata 925..." oninput="markUnsaved()"></textarea><div class="af-hint">Recomendado: 150–160 caracteres</div></div>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-title">Footer — Logo e identidad</div>
+          <div class="agrid">
+            <div>
+              <div class="af">
+                <label>Logo del footer</label>
+                <div class="img-upload-area" style="text-align:center">
+                  <img id="footer-logo-preview" src="logo.jpeg" style="height:64px;width:64px;object-fit:cover;border-radius:50%;margin:0 auto .5rem;display:block;border:1px solid var(--border)">
+                  <input type="file" id="footer-logo-input" class="upload-input" accept="image/*" onchange="handleFooterLogoUpload(event)">
+                  <button class="btn-upload" onclick="document.getElementById('footer-logo-input').click()">📁 Cambiar logo</button>
+                  <div class="upload-status" id="footer-logo-status"></div>
+                </div>
+                <div class="af-hint" style="margin-top:.4rem">Este logo aparece en la nav y en el footer</div>
+              </div>
+            </div>
+            <div>
+              <div class="af"><label>Nombre de la marca (footer)</label><input type="text" id="a-footer-brand-name" oninput="document.getElementById('footer-brand-name-el').textContent=this.value;markUnsaved()"></div>
+              <div class="af"><label>Subtítulo (ej: Joyas de Plata)</label><input type="text" id="a-footer-brand-sub" oninput="document.getElementById('footer-brand-sub-el').textContent=this.value;markUnsaved()"></div>
+              <div class="af"><label>Descripción breve</label><textarea id="a-footer-desc" rows="3" oninput="document.getElementById('footer-brand-desc-el').textContent=this.value;markUnsaved()"></textarea></div>
+            </div>
+          </div>
+          <div class="af"><label>Texto de copyright</label><input type="text" id="a-footer-copy" oninput="document.getElementById('footer-copy-text').textContent=this.value;markUnsaved()"></div>
+          <div class="af"><label>Texto derecha del copyright (ej: Plata 925 · Chile 🇨🇱)</label><input type="text" id="a-footer-copy-right" placeholder="Plata 925 · Chile 🇨🇱" oninput="document.getElementById('footer-copy-right-el').textContent=this.value;markUnsaved()"></div>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-title">Footer — Columnas de enlaces</div>
+          <div class="admin-section-subtitle">Cada columna acepta múltiples links separados por línea (Texto|URL)</div>
+          <div class="agrid3">
+            <div class="af">
+              <label>Columna 1 — Título</label>
+              <input type="text" id="a-footer-col1-title" placeholder="Tienda" oninput="document.getElementById('footer-col1-title-el').textContent=this.value;markUnsaved()">
+              <label style="margin-top:.6rem">Links (un por línea: Texto|URL)</label>
+              <textarea id="a-footer-col1-links" rows="5" placeholder="Colección|#catalogo&#10;Galería|#galeria&#10;Contacto|#contacto" oninput="renderFooterCol('footer-col1-links',this.value);markUnsaved()"></textarea>
+            </div>
+            <div class="af">
+              <label>Columna 2 — Título</label>
+              <input type="text" id="a-footer-col2-title" placeholder="Ayuda" oninput="document.getElementById('footer-col2-title-el').textContent=this.value;markUnsaved()">
+              <label style="margin-top:.6rem">Links (un por línea: Texto|URL)</label>
+              <textarea id="a-footer-col2-links" rows="5" placeholder="Envíos|#contacto&#10;Devoluciones|#contacto&#10;Cuidado de joyas|#contacto" oninput="renderFooterCol('footer-col2-links',this.value);markUnsaved()"></textarea>
+            </div>
+            <div class="af">
+              <label>Columna 3 — Título</label>
+              <input type="text" id="a-footer-col3-title" placeholder="Síguenos" oninput="document.getElementById('footer-col3-title-el').textContent=this.value;markUnsaved()">
+              <label style="margin-top:.6rem">Links (un por línea: Texto|URL)</label>
+              <textarea id="a-footer-col3-links" rows="5" placeholder="Instagram|#&#10;Facebook|#&#10;TikTok|#" oninput="renderFooterCol('footer-col3-links',this.value);markUnsaved()"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PRODUCTOS ── -->
+      <div class="admin-tab" id="tab-products">
+        <div class="admin-section">
+          <div class="admin-section-title">Catálogo de productos <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:normal;font-size:.65rem" id="product-count-label"></span></div>
+          <div id="products-admin"></div>
+          <button class="btn-add" onclick="addProduct()">+ Agregar nuevo producto</button>
+        </div>
+      </div>
+
+      <!-- ── GALERÍA ── -->
+      <div class="admin-tab" id="tab-gallery">
+        <div class="admin-section">
+          <div class="admin-section-title">Subir imágenes a la galería</div>
+          <div class="drop-zone" id="gallery-drop-zone">
+            <input type="file" accept="image/*" multiple onchange="handleGalleryMultiUpload(event)">
+            <div class="drop-zone-icon">
+              <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="drop-zone-text"><strong>Arrastra varias imágenes aquí</strong>o haz clic para seleccionar múltiples fotos<br><span style="font-size:.6rem;opacity:.6">JPG, PNG, WEBP · Puedes seleccionar varias a la vez</span></div>
+          </div>
+          <div class="upload-progress" id="gallery-multi-progress"><div class="upload-progress-bar" id="gallery-multi-bar"></div></div>
+          <div class="upload-status" id="gallery-multi-status" style="text-align:left;margin-top:.4rem"></div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">Imágenes de la galería <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:normal;font-size:.65rem" id="gallery-count-label"></span></div>
+          <div class="gallery-admin-grid" id="gallery-admin"></div>
+          <button class="btn-add" onclick="addGalleryItem()" style="margin-top:.8rem">+ Agregar manualmente por URL</button>
+        </div>
+      </div>
+
+      <!-- ── CONTACTO ── -->
+      <div class="admin-tab" id="tab-contact">
+        <div class="admin-section">
+          <div class="admin-section-title">Información de contacto</div>
+          <div class="agrid">
+            <div class="af"><label>WhatsApp (sin +)</label><input type="text" id="a-whatsapp" placeholder="56912345678" oninput="markUnsaved()"><div class="af-hint">Ej: 56912345678 (sin espacios ni +)</div></div>
+            <div class="af"><label>Email</label><input type="text" id="a-email" oninput="markUnsaved()"></div>
+          </div>
+          <div class="agrid">
+            <div class="af"><label>Ubicación</label><input type="text" id="a-location" oninput="markUnsaved()"></div>
+            <div class="af"><label>Horario de atención</label><input type="text" id="a-hours" placeholder="Lun-Vie 9:00–18:00" oninput="markUnsaved()"></div>
+          </div>
+          <div class="af"><label>Texto del bloque de contacto</label><textarea id="a-contact-text" rows="3" oninput="markUnsaved()"></textarea></div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">Mensaje automático de WhatsApp</div>
+          <div class="af"><label>Mensaje predeterminado al abrir WhatsApp</label><textarea id="a-wa-message" rows="3" placeholder="Hola, me interesa consultar por sus joyas..." oninput="markUnsaved()"></textarea></div>
+        </div>
+      </div>
+
+      <!-- ── APARIENCIA ── -->
+      <div class="admin-tab" id="tab-appearance">
+        <div class="admin-section">
+          <div class="admin-section-title">Colores de la marca</div>
+          <div class="agrid3">
+            <div class="af"><label>Color dorado principal</label><div class="color-field"><input type="color" id="a-color-gold" value="#c9a96e" oninput="liveColorPreview('--gold',this.value);markUnsaved()"><input type="text" id="a-color-gold-hex" value="#c9a96e" oninput="document.getElementById('a-color-gold').value=this.value;liveColorPreview('--gold',this.value)"></div></div>
+            <div class="af"><label>Color dorado claro</label><div class="color-field"><input type="color" id="a-color-gold2" value="#e8d5a3" oninput="liveColorPreview('--gold2',this.value);markUnsaved()"><input type="text" id="a-color-gold2-hex" value="#e8d5a3" oninput="document.getElementById('a-color-gold2').value=this.value;liveColorPreview('--gold2',this.value)"></div></div>
+            <div class="af"><label>Color de fondo</label><div class="color-field"><input type="color" id="a-color-black" value="#0e0e0e" oninput="liveColorPreview('--black',this.value);markUnsaved()"><input type="text" id="a-color-black-hex" value="#0e0e0e" oninput="document.getElementById('a-color-black').value=this.value;liveColorPreview('--black',this.value)"></div></div>
+          </div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">Opciones de la tienda</div>
+          <div class="toggle-row"><div><div class="toggle-label">Mostrar precios</div><div class="toggle-sub">Ocultar precios en las tarjetas de producto</div></div><label class="toggle-switch"><input type="checkbox" id="a-show-prices" checked onchange="markUnsaved()"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div><div class="toggle-label">Mostrar stock</div><div class="toggle-sub">Indicador de últimas unidades / agotado</div></div><label class="toggle-switch"><input type="checkbox" id="a-show-stock" checked onchange="markUnsaved()"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div><div class="toggle-label">Carrito de compras</div><div class="toggle-sub">Habilitar el carrito y proceso de compra</div></div><label class="toggle-switch"><input type="checkbox" id="a-show-cart" checked onchange="markUnsaved()"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div><div class="toggle-label">Sección galería</div><div class="toggle-sub">Mostrar la sección de galería en la tienda</div></div><label class="toggle-switch"><input type="checkbox" id="a-show-gallery" checked onchange="markUnsaved()"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div><div class="toggle-label">Modo mantenimiento</div><div class="toggle-sub">Muestra un banner de "próximamente" a los visitantes</div></div><label class="toggle-switch"><input type="checkbox" id="a-maintenance" onchange="markUnsaved()"><span class="toggle-slider"></span></label></div>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title">Moneda y región</div>
+          <div class="agrid">
+            <div class="af"><label>Símbolo de moneda</label><input type="text" id="a-currency-symbol" placeholder="$" oninput="markUnsaved()"></div>
+            <div class="af"><label>País / Región</label><input type="text" id="a-country" placeholder="Chile" oninput="markUnsaved()"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── REDES SOCIALES ── -->
+      <div class="admin-tab" id="tab-social">
+        <div class="admin-section">
+          <div class="admin-section-title">Redes sociales</div>
+          <div class="af"><label>Instagram</label><div class="social-row"><div class="social-icon-badge">IG</div><input type="text" id="a-instagram" placeholder="https://instagram.com/indomitasilver" oninput="markUnsaved()"></div></div>
+          <div class="af"><label>Facebook</label><div class="social-row"><div class="social-icon-badge">FB</div><input type="text" id="a-facebook" placeholder="https://facebook.com/indomitasilver" oninput="markUnsaved()"></div></div>
+          <div class="af"><label>TikTok</label><div class="social-row"><div class="social-icon-badge">TT</div><input type="text" id="a-tiktok" placeholder="https://tiktok.com/@indomitasilver" oninput="markUnsaved()"></div></div>
+          <div class="af"><label>Pinterest</label><div class="social-row"><div class="social-icon-badge">PT</div><input type="text" id="a-pinterest" placeholder="https://pinterest.com/indomitasilver" oninput="markUnsaved()"></div></div>
+        </div>
+      </div>
+
+      <!-- ── SEGURIDAD ── -->
+      <div class="admin-tab" id="tab-security">
+        <div class="admin-section">
+          <div class="admin-section-title">Credenciales de acceso</div>
+          <div class="agrid">
+            <div class="af"><label>Usuario</label><input type="text" id="a-new-user" oninput="markUnsaved()"></div>
+            <div class="af"><label>Nueva contraseña</label><input type="password" id="a-new-pass" placeholder="Dejar vacío para no cambiar"></div>
+          </div>
+          <button class="btn-asave" onclick="changeCredentials()">Actualizar credenciales</button>
+        </div>
+        <div class="admin-section">
+          <div class="admin-section-title" style="color:var(--red)">Zona peligrosa</div>
+          <div class="toggle-row"><div><div class="toggle-label">Resetear a valores por defecto</div><div class="toggle-sub">Borra todos los cambios y restaura el contenido original</div></div><button class="btn-del" onclick="confirmReset()">Resetear</button></div>
+        </div>
+      </div>
+
+    </div><!-- /admin-content -->
+  </div><!-- /admin-layout -->
+</div>
+
+<div class="toast" id="toast">Cambios guardados</div>
+
+<script>
+const CLOUDINARY_CLOUD = 'dsrnkhe1k';
+const CLOUDINARY_PRESET = 'indomita_upload';
+
+const DEFAULT={brandName:"Indomita Silver",topbar:"Envío gratis en compras sobre $40.000 · Plata 925 certificada",promo1:"En compras sobre $40.000",promo2:"925 milésimas garantizadas",promo3:"Sin costo por 30 días",footerCopy:"© 2025 Indomita Silver · Todos los derechos reservados",heroEyebrow:"Colección 2025",heroDesc:"Piezas únicas elaboradas en plata 925. Elegancia atemporal para quienes se atreven a brillar.",whatsapp:"56900000000",email:"contacto@indomitasilver.cl",location:"Santiago, Chile",contactText:"¿Tienes preguntas sobre nuestras joyas? Escríbenos por WhatsApp o email y te respondemos al instante.",products:[{name:"Collar Luna",cat:"Collares",desc:"Plata 925 con baño de rodio. Longitud 45cm.",price:"$24.990",priceNum:24990,stock:15,oldPrice:"",badge:"new",badgeText:"Nuevo",img:""},{name:"Anillo Eternidad",cat:"Anillos",desc:"Banda en plata 925 con circones blancos.",price:"$18.990",priceNum:18990,stock:8,oldPrice:"$24.990",badge:"sale",badgeText:"Oferta",img:""},{name:"Aros Espiral",cat:"Aros",desc:"Aros colgantes en plata 925. Largo 3cm.",price:"$14.990",priceNum:14990,stock:0,oldPrice:"",badge:"",badgeText:"",img:""},{name:"Pulsera Flor",cat:"Pulseras",desc:"Plata 925 con dije floral artesanal.",price:"$21.990",priceNum:21990,stock:3,oldPrice:"",badge:"",badgeText:"",img:""}],gallery:["","","","","",""],user:"admin",pass:"tienda123"};
+
+function loadData(){try{return JSON.parse(localStorage.getItem('indomitaV4'))||DEFAULT;}catch{return DEFAULT;}}
+function saveData(d){localStorage.setItem('indomitaV4',JSON.stringify(d));}
+let data=loadData();
+
+// CLOUDINARY UPLOAD
+async function uploadToCloudinary(file, statusEl, imgEl, onSuccess) {
+  statusEl.textContent = 'Subiendo imagen...';
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('upload_preset', CLOUDINARY_PRESET);
+  try {
+    const resp = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`, {method:'POST', body:fd});
+    const result = await resp.json();
+    if (result.secure_url) {
+      statusEl.textContent = '✓ Imagen subida';
+      if (imgEl) { imgEl.src = result.secure_url; imgEl.style.display = 'block'; }
+      onSuccess(result.secure_url);
+      setTimeout(()=>statusEl.textContent='', 2000);
+    } else {
+      statusEl.textContent = '✗ Error al subir';
+    }
+  } catch(e) {
+    statusEl.textContent = '✗ Error de conexión';
+  }
+}
+
+// CART
+let cart=[];
+function addToCart(idx){
+  const p=data.products[idx];
+  if(p.stock===0)return;
+  const ex=cart.find(i=>i.idx===idx);
+  if(ex){ if(ex.qty<p.stock)ex.qty++; }
+  else cart.push({idx,name:p.name,price:p.priceNum||0,priceStr:p.price,img:p.img,qty:1});
+  updateCartBadge();openCart();
+}
+function removeFromCart(idx){cart=cart.filter(i=>i.idx!==idx);updateCartBadge();renderCart();}
+function updateCartBadge(){const t=cart.reduce((s,i)=>s+i.qty,0);const b=document.getElementById('cart-badge');b.textContent=t;b.classList.toggle('show',t>0);}
+function fmt(n){return '$'+n.toLocaleString('es-CL');}
+function cartTotal(){return cart.reduce((s,i)=>s+(i.price*i.qty),0);}
+function renderCart(){
+  const list=document.getElementById('cart-items-list');
+  if(!cart.length){list.innerHTML='<div class="cart-empty">Tu carrito está vacío</div>';document.getElementById('cart-total-text').textContent='$0';return;}
+  list.innerHTML=cart.map(item=>`<div class="cart-item"><div class="cart-item-img">${item.img?`<img src="${item.img}" alt="">`:`<div style="width:100%;height:100%;background:var(--surface);"></div>`}</div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">${item.priceStr} × ${item.qty}</div></div><button class="cart-item-remove" onclick="removeFromCart(${item.idx})">✕</button></div>`).join('');
+  document.getElementById('cart-total-text').textContent=fmt(cartTotal());
+}
+function openCart(){document.getElementById('cart-overlay').classList.add('open');document.getElementById('cart-drawer').classList.add('open');renderCart();}
+function closeCart(){document.getElementById('cart-overlay').classList.remove('open');document.getElementById('cart-drawer').classList.remove('open');}
+
+// CHECKOUT
+function goToCheckout(){if(!cart.length)return;closeCart();renderOrderSummary();document.getElementById('checkout-page').classList.add('open');window.scrollTo(0,0);}
+function closeCheckout(){document.getElementById('checkout-page').classList.remove('open');}
+function renderOrderSummary(){
+  document.getElementById('order-items-list').innerHTML=cart.map(i=>`<div class="order-item"><div class="order-item-img">${i.img?`<img src="${i.img}" alt="">`:`<div style="width:100%;height:100%;background:var(--surface);"></div>`}</div><div><div class="order-item-name">${i.name} ×${i.qty}</div><div class="order-item-price">${i.priceStr}</div></div></div>`).join('');
+  const sub=cartTotal();
+  document.getElementById('order-subtotal').textContent=fmt(sub);
+  document.getElementById('order-total').textContent=fmt(sub);
+}
+function validateCheckout(){
+  const fields=[{id:'f-nombre',gid:'fg-nombre',check:v=>v.trim().length>1},{id:'f-apellido',gid:'fg-apellido',check:v=>v.trim().length>1},{id:'f-email',gid:'fg-email',check:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},{id:'f-telefono',gid:'fg-telefono',check:v=>v.trim().length>6},{id:'f-direccion',gid:'fg-direccion',check:v=>v.trim().length>4},{id:'f-ciudad',gid:'fg-ciudad',check:v=>v.trim().length>1},{id:'f-region',gid:'fg-region',check:v=>v!==''}];
+  let ok=true;
+  fields.forEach(f=>{const el=document.getElementById(f.id),g=document.getElementById(f.gid);if(!f.check(el.value)){g.classList.add('error');ok=false;}else g.classList.remove('error');});
+  return ok;
+}
+async function submitPayment(){
+  if(!validateCheckout())return;
+  const btn=document.getElementById('pay-btn'),err=document.getElementById('checkout-error');
+  btn.disabled=true;btn.textContent='Procesando...';err.classList.remove('show');
+  const orderData={order:'ORD-'+Date.now(),amount:cartTotal(),email:document.getElementById('f-email').value,subject:'Compra en Indomita Silver'};
+  try{
+    const resp=await fetch('/.netlify/functions/create-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(orderData)});
+    const result=await resp.json();
+    if(result.redirectUrl){window.location.href=result.redirectUrl;}
+    else{err.textContent=result.error||'Error al procesar el pago.';err.classList.add('show');btn.disabled=false;btn.innerHTML='Pagar con Flow';}
+  }catch(e){err.textContent='Error de conexión. Verifica que el sitio esté en Netlify.';err.classList.add('show');btn.disabled=false;btn.innerHTML='Pagar con Flow';}
+}
+
+// RENDER STORE
+function renderStore(){
+  document.title=data.brandName+' — Joyas de Plata';
+  document.getElementById('topbar-text').textContent=data.topbar;
+  document.getElementById('nav-logo-text-el').textContent=data.brandName;
+  document.getElementById('hero-eyebrow-text').textContent=data.heroEyebrow;
+  document.getElementById('hero-desc-text').textContent=data.heroDesc;
+  document.getElementById('promo1-text').textContent=data.promo1;
+  document.getElementById('promo2-text').textContent=data.promo2;
+  document.getElementById('promo3-text').textContent=data.promo3;
+  document.getElementById('contact-text-el').textContent=data.contactText;
+  document.getElementById('contact-email-el').textContent=data.email;
+  document.getElementById('contact-location-el').textContent=data.location;
+  document.getElementById('whatsapp-link').href='https://wa.me/'+data.whatsapp;
+  document.getElementById('footer-copy-text').textContent=data.footerCopy;
+
+  // Footer brand
+  if(data.footerBrandName) document.getElementById('footer-brand-name-el').textContent=data.footerBrandName;
+  if(data.footerBrandSub) document.getElementById('footer-brand-sub-el').textContent=data.footerBrandSub;
+  if(data.footerDesc) document.getElementById('footer-brand-desc-el').textContent=data.footerDesc;
+  if(data.footerCopyRight) document.getElementById('footer-copy-right-el').textContent=data.footerCopyRight;
+  if(data.footerLogo) { document.getElementById('footer-logo-img').src=data.footerLogo; document.getElementById('nav-logo-img').src=data.footerLogo; }
+
+  // Footer columns
+  if(data.footerCol1Title) document.getElementById('footer-col1-title-el').textContent=data.footerCol1Title;
+  if(data.footerCol2Title) document.getElementById('footer-col2-title-el').textContent=data.footerCol2Title;
+  if(data.footerCol3Title) document.getElementById('footer-col3-title-el').textContent=data.footerCol3Title;
+  const renderCol=(ulId,text)=>{ const ul=document.getElementById(ulId); if(!ul||!text) return; const lines=text.split('\n').filter(l=>l.trim()); ul.innerHTML=lines.map(line=>{const parts=line.split('|');const label=parts[0]?.trim()||'';const href=parts[1]?.trim()||'#';return label?`<li><a href="${href}">${label}</a></li>`:''}).join(''); };
+  renderCol('footer-col1-links', data.footerCol1Links || 'Colección|#catalogo\nGalería|#galeria\nContacto|#contacto');
+  renderCol('footer-col2-links', data.footerCol2Links || 'Envíos|#contacto\nDevoluciones|#contacto\nCuidado de joyas|#contacto');
+  renderCol('footer-col3-links', data.footerCol3Links || 'Instagram|#\nFacebook|#\nTikTok|#');
+
+  const pg=document.getElementById('products-grid');pg.innerHTML='';
+  data.products.forEach((p,i)=>{
+    const outOfStock=p.stock===0;
+    const lowStock=p.stock>0&&p.stock<=3;
+    const c=document.createElement('div');c.className='product-card';
+    c.innerHTML=`<div class="product-img">
+      ${p.img?`<img src="${p.img}" alt="${p.name}">`:`<div class="product-img-ph"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>`}
+      <div class="product-badge-wrap">${p.badge?`<span class="product-badge ${p.badge}">${p.badgeText}</span>`:''}</div>
+      ${outOfStock?`<div class="stock-badge out">Agotado</div>`:lowStock?`<div class="stock-badge low">Últimas ${p.stock} unidades</div>`:``}
+      <button class="wishlist-btn"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">${p.cat}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div class="product-price-row">
+        <div class="product-price">${p.oldPrice?`<span class="old-price">${p.oldPrice}</span>${p.price}`:p.price}</div>
+        ${outOfStock
+          ? `<span class="out-label">Agotado</span>`
+          : `<button class="add-btn" onclick="addToCart(${i})"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>`}
+      </div>
+      ${outOfStock?'':`<button class="add-text-btn" onclick="addToCart(${i})">Agregar al carrito</button>`}
+    </div>`;
+    pg.appendChild(c);
+  });
+
+  const gg=document.getElementById('gallery-grid');gg.innerHTML='';
+  data.gallery.forEach(url=>{
+    const item=document.createElement('div');item.className='gallery-item';
+    item.innerHTML=url?`<img src="${url}" alt="">`:`<div class="gallery-ph"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Sin imagen</span></div>`;
+    gg.appendChild(item);
+  });
+}
+
+// ═══ FOOTER COLUMN RENDERER ═══
+function renderFooterCol(colId, text) {
+  const colMap = {'footer-col1-links':'footer-col1-links','footer-col2-links':'footer-col2-links','footer-col3-links':'footer-col3-links'};
+  const ulMap = {'footer-col1-links':'footer-col1-links','footer-col2-links':'footer-col2-links','footer-col3-links':'footer-col3-links'};
+  // Map field id to UL id
+  const ulId = colId.replace('a-footer-col','footer-col').replace('-links','-links');
+  const ul = document.getElementById(ulId); if(!ul) return;
+  const lines = text.split('\n').filter(l=>l.trim());
+  ul.innerHTML = lines.map(line=>{
+    const parts = line.split('|');
+    const label = parts[0]?.trim()||'';
+    const href = parts[1]?.trim()||'#';
+    return label ? `<li><a href="${href}">${label}</a></li>` : '';
+  }).join('');
+}
+
+// ═══ FOOTER LOGO UPLOAD ═══
+function handleFooterLogoUpload(event) {
+  const file=event.target.files[0]; if(!file) return;
+  const status=document.getElementById('footer-logo-status');
+  uploadToCloudinary(file, status, null, (url)=>{
+    data.footerLogo=url;
+    document.getElementById('footer-logo-preview').src=url;
+    document.getElementById('footer-logo-img').src=url;
+    document.getElementById('nav-logo-img').src=url;
+    const heroLogoImg=document.querySelector('.hero-logo-img');
+    if(heroLogoImg) heroLogoImg.src=url;
+    markUnsaved();
+  });
+}
+
+// ═══ ADMIN TAB SWITCHING ═══
+function switchTab(tabId, navEl) {
+  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.admin-nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  if(navEl) navEl.classList.add('active');
+  if(tabId==='tab-dashboard') updateDashboardStats();
+}
+
+// ═══ UNSAVED CHANGES INDICATOR ═══
+function markUnsaved(){document.getElementById('unsaved-dot').classList.add('show');}
+function clearUnsaved(){document.getElementById('unsaved-dot').classList.remove('show');}
+
+// ═══ LIVE COLOR PREVIEW ═══
+function liveColorPreview(varName, val) {
+  document.documentElement.style.setProperty(varName, val);
+  const hexId = 'a-color-'+varName.replace('--','') + '-hex';
+  const hexEl = document.getElementById(hexId);
+  if(hexEl) hexEl.value = val;
+}
+
+// ═══ LIVE HERO BG PREVIEW ═══
+function liveHeroBg(url) {
+  if(url) {
+    document.getElementById('hero-preview-img').src = url;
+    document.getElementById('hero-bg-img').src = url;
+    data.heroBg = url;
+    markUnsaved();
+  }
+}
+
+// ═══ HERO BG UPLOAD ═══
+function handleHeroBgUpload(event) {
+  const file = event.target.files[0]; if(!file) return;
+  const prog = document.getElementById('hero-progress');
+  const bar = document.getElementById('hero-progress-bar');
+  const status = document.getElementById('hero-status');
+  prog.classList.add('show'); bar.style.width='20%';
+  status.textContent='Subiendo imagen de portada...';
+  uploadToCloudinary(file, status, null, (url) => {
+    bar.style.width='100%';
+    setTimeout(()=>{prog.classList.remove('show');bar.style.width='0';},800);
+    data.heroBg = url;
+    document.getElementById('a-hero-bg-url').value = url;
+    liveHeroBg(url);
+  });
+}
+
+// ═══ HERO LOGO UPLOAD ═══
+function handleHeroLogoUpload(event) {
+  const file = event.target.files[0]; if(!file) return;
+  const status = document.getElementById('hero-logo-status');
+  uploadToCloudinary(file, status, null, (url) => {
+    data.heroLogo = url;
+    document.getElementById('hero-logo-preview').src = url;
+    document.getElementById('nav-logo-img').src = url;
+    const heroLogoImg = document.querySelector('.hero-logo-img');
+    if(heroLogoImg) heroLogoImg.src = url;
+    markUnsaved();
+  });
+}
+
+// ═══ MULTI-IMAGE GALLERY UPLOAD ═══
+async function handleGalleryMultiUpload(event) {
+  const files = Array.from(event.target.files); if(!files.length) return;
+  const prog = document.getElementById('gallery-multi-progress');
+  const bar = document.getElementById('gallery-multi-bar');
+  const status = document.getElementById('gallery-multi-status');
+  prog.classList.add('show');
+  status.textContent=`Subiendo 0 / ${files.length} imágenes...`;
+  let done=0;
+  for(const file of files){
+    await new Promise(resolve=>{
+      const fd=new FormData(); fd.append('file',file); fd.append('upload_preset',CLOUDINARY_PRESET);
+      fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`,{method:'POST',body:fd})
+        .then(r=>r.json()).then(result=>{
+          if(result.secure_url){ data.gallery.push(result.secure_url); }
+          done++;
+          bar.style.width=(done/files.length*100)+'%';
+          status.textContent=`Subiendo ${done} / ${files.length} imágenes...`;
+          resolve();
+        }).catch(()=>{ done++; resolve(); });
+    });
+  }
+  status.textContent=`✓ ${done} imágenes subidas correctamente`;
+  setTimeout(()=>{ prog.classList.remove('show'); bar.style.width='0'; },1500);
+  renderAdmin(); markUnsaved();
+}
+
+// ═══ DASHBOARD STATS ═══
+function updateDashboardStats() {
+  document.getElementById('stat-products').textContent = data.products.length;
+  document.getElementById('stat-stock').textContent = data.products.reduce((s,p)=>s+(p.stock||0),0);
+  document.getElementById('stat-gallery').textContent = data.gallery.filter(g=>g).length;
+  document.getElementById('stat-out').textContent = data.products.filter(p=>p.stock===0).length;
+  const lowStockEl = document.getElementById('low-stock-list');
+  const lowStockItems = data.products.filter(p=>p.stock>0&&p.stock<=5);
+  if(!lowStockItems.length){ lowStockEl.innerHTML='<div class="orders-empty">Sin alertas de stock ✓</div>'; return; }
+  lowStockEl.innerHTML = lowStockItems.map(p=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)">
+      <span style="font-size:.78rem;color:#f5f0e8">${p.name}</span>
+      <span style="font-size:.7rem;color:#f59e0b;letter-spacing:.05em">${p.stock} unidades restantes</span>
+    </div>`).join('');
+}
+
+// ═══ PREVIEW SITE ═══
+function previewSite(){ saveAll(); closeAdmin(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+// ═══ CONFIRM RESET ═══
+function confirmReset(){
+  if(confirm('¿Resetear todo a los valores por defecto? Esta acción no se puede deshacer.')) {
+    localStorage.removeItem('indomitaV4'); data=loadData(); renderAdmin(); renderStore();
+    showToast('Datos reseteados');
+  }
+}
+
+// ═══ RENDER ADMIN (FULL) ═══
+function renderAdmin(){
+  // Dashboard
+  updateDashboardStats();
+
+  // Hero tab
+  if(document.getElementById('a-hero-eyebrow')) document.getElementById('a-hero-eyebrow').value=data.heroEyebrow||'';
+  if(document.getElementById('a-hero-desc')) document.getElementById('a-hero-desc').value=data.heroDesc||'';
+  if(document.getElementById('a-hero-bg-url')) document.getElementById('a-hero-bg-url').value=data.heroBg||'';
+  if(document.getElementById('a-hero-btn1')) document.getElementById('a-hero-btn1').value=data.heroBtn1||'Ver colección';
+  if(document.getElementById('a-hero-btn2')) document.getElementById('a-hero-btn2').value=data.heroBtn2||'Contactar';
+  if(data.heroBg) { document.getElementById('hero-preview-img').src=data.heroBg; }
+  if(data.heroLogo) { document.getElementById('hero-logo-preview').src=data.heroLogo; }
+  if(document.getElementById('a-topbar')) document.getElementById('a-topbar').value=data.topbar||'';
+  if(document.getElementById('hp-eyebrow-preview')) document.getElementById('hp-eyebrow-preview').textContent=data.heroEyebrow||'';
+
+  // General tab
+  if(document.getElementById('a-brand-name')) document.getElementById('a-brand-name').value=data.brandName||'';
+  if(document.getElementById('a-brand-slogan')) document.getElementById('a-brand-slogan').value=data.brandSlogan||'Joyas de Plata';
+  if(document.getElementById('a-footer-desc')) document.getElementById('a-footer-desc').value=data.footerDesc||'';
+  if(document.getElementById('a-footer-copy')) document.getElementById('a-footer-copy').value=data.footerCopy||'';
+  if(document.getElementById('a-footer-brand-name')) document.getElementById('a-footer-brand-name').value=data.footerBrandName||data.brandName||'';
+  if(document.getElementById('a-footer-brand-sub')) document.getElementById('a-footer-brand-sub').value=data.footerBrandSub||'Joyas de Plata';
+  if(document.getElementById('a-footer-copy-right')) document.getElementById('a-footer-copy-right').value=data.footerCopyRight||'Plata 925 · Chile 🇨🇱';
+  if(document.getElementById('footer-logo-preview')&&data.footerLogo) document.getElementById('footer-logo-preview').src=data.footerLogo;
+  // Footer columns
+  if(document.getElementById('a-footer-col1-title')) document.getElementById('a-footer-col1-title').value=data.footerCol1Title||'Tienda';
+  if(document.getElementById('a-footer-col2-title')) document.getElementById('a-footer-col2-title').value=data.footerCol2Title||'Ayuda';
+  if(document.getElementById('a-footer-col3-title')) document.getElementById('a-footer-col3-title').value=data.footerCol3Title||'Síguenos';
+  if(document.getElementById('a-footer-col1-links')) document.getElementById('a-footer-col1-links').value=data.footerCol1Links||'Colección|#catalogo\nGalería|#galeria\nContacto|#contacto';
+  if(document.getElementById('a-footer-col2-links')) document.getElementById('a-footer-col2-links').value=data.footerCol2Links||'Envíos|#contacto\nDevoluciones|#contacto\nCuidado de joyas|#contacto';
+  if(document.getElementById('a-footer-col3-links')) document.getElementById('a-footer-col3-links').value=data.footerCol3Links||'Instagram|#\nFacebook|#\nTikTok|#';
+  if(document.getElementById('a-promo1')) document.getElementById('a-promo1').value=data.promo1||'';
+  if(document.getElementById('a-promo2')) document.getElementById('a-promo2').value=data.promo2||'';
+  if(document.getElementById('a-promo3')) document.getElementById('a-promo3').value=data.promo3||'';
+  if(document.getElementById('a-promo1-title')) document.getElementById('a-promo1-title').value=data.promo1Title||'Envío gratis';
+  if(document.getElementById('a-promo2-title')) document.getElementById('a-promo2-title').value=data.promo2Title||'Plata certificada';
+  if(document.getElementById('a-promo3-title')) document.getElementById('a-promo3-title').value=data.promo3Title||'Devoluciones';
+
+  // Contact tab
+  if(document.getElementById('a-whatsapp')) document.getElementById('a-whatsapp').value=data.whatsapp||'';
+  if(document.getElementById('a-email')) document.getElementById('a-email').value=data.email||'';
+  if(document.getElementById('a-location')) document.getElementById('a-location').value=data.location||'';
+  if(document.getElementById('a-contact-text')) document.getElementById('a-contact-text').value=data.contactText||'';
+  if(document.getElementById('a-hours')) document.getElementById('a-hours').value=data.hours||'';
+  if(document.getElementById('a-wa-message')) document.getElementById('a-wa-message').value=data.waMessage||'';
+
+  // Social tab
+  if(document.getElementById('a-instagram')) document.getElementById('a-instagram').value=data.instagram||'';
+  if(document.getElementById('a-facebook')) document.getElementById('a-facebook').value=data.facebook||'';
+  if(document.getElementById('a-tiktok')) document.getElementById('a-tiktok').value=data.tiktok||'';
+  if(document.getElementById('a-pinterest')) document.getElementById('a-pinterest').value=data.pinterest||'';
+
+  // Security tab
+  if(document.getElementById('a-new-user')) document.getElementById('a-new-user').value=data.user||'';
+  if(document.getElementById('a-new-pass')) document.getElementById('a-new-pass').value='';
+
+  // Appearance toggles
+  if(document.getElementById('a-show-prices')) document.getElementById('a-show-prices').checked = data.showPrices!==false;
+  if(document.getElementById('a-show-stock')) document.getElementById('a-show-stock').checked = data.showStock!==false;
+  if(document.getElementById('a-show-cart')) document.getElementById('a-show-cart').checked = data.showCart!==false;
+  if(document.getElementById('a-show-gallery')) document.getElementById('a-show-gallery').checked = data.showGallery!==false;
+  if(document.getElementById('a-maintenance')) document.getElementById('a-maintenance').checked = !!data.maintenance;
+
+  // Color pickers
+  if(data.colorGold) { const ci=document.getElementById('a-color-gold'); if(ci){ci.value=data.colorGold;document.getElementById('a-color-gold-hex').value=data.colorGold;} }
+  if(data.colorGold2) { const ci=document.getElementById('a-color-gold2'); if(ci){ci.value=data.colorGold2;document.getElementById('a-color-gold2-hex').value=data.colorGold2;} }
+
+  // Product count label
+  const pcl = document.getElementById('product-count-label');
+  if(pcl) pcl.textContent = `(${data.products.length} productos)`;
+
+  // Gallery count
+  const gcl = document.getElementById('gallery-count-label');
+  if(gcl) gcl.textContent = `(${data.gallery.filter(g=>g).length} imágenes)`;
+
+  // ── PRODUCTS ──
+  const pa=document.getElementById('products-admin'); if(!pa) return; pa.innerHTML='';
+  data.products.forEach((p,i)=>{
+    const div=document.createElement('div'); div.className='product-admin-card';
+    const imgId=`img-preview-${i}`, statusId=`upload-status-${i}`, inputId=`upload-input-${i}`;
+    div.innerHTML=`
+      <div class="pah" onclick="toggleProductCard(this)">
+        <span class="pan">
+          ${p.img?`<img class="pan-img" src="${p.img}" alt="">`:`<div class="pan-img-ph"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></div>`}
+          ${p.name||'Producto sin nombre'}
+          ${p.stock===0?`<span style="color:var(--red);font-size:.58rem">(agotado)</span>`:p.stock<=3?`<span style="color:#f59e0b;font-size:.58rem">(stock bajo)</span>`:''}
+        </span>
+        <div class="pah-right">
+          <button class="pan-collapse" title="Expandir/Colapsar">▼</button>
+          <button class="btn-del" onclick="event.stopPropagation();deleteProduct(${i})">Eliminar</button>
+        </div>
+      </div>
+      <div class="pac-body">
+        <div class="agrid">
+          <div class="af"><label>Nombre</label><input type="text" value="${p.name}" oninput="data.products[${i}].name=this.value;markUnsaved()"></div>
+          <div class="af"><label>Categoría</label><input type="text" value="${p.cat}" oninput="data.products[${i}].cat=this.value;markUnsaved()"></div>
+        </div>
+        <div class="af"><label>Descripción</label><textarea rows="2" oninput="data.products[${i}].desc=this.value;markUnsaved()">${p.desc}</textarea></div>
+        <div class="agrid">
+          <div class="af"><label>Precio (ej: $24.990)</label><input type="text" value="${p.price}" oninput="data.products[${i}].price=this.value;markUnsaved()"></div>
+          <div class="af"><label>Precio numérico</label><input type="number" value="${p.priceNum||0}" oninput="data.products[${i}].priceNum=Number(this.value);markUnsaved()"></div>
+        </div>
+        <div class="agrid">
+          <div class="af"><label>Stock (unidades)</label><input type="number" value="${p.stock||0}" min="0" oninput="data.products[${i}].stock=Number(this.value);markUnsaved()"></div>
+          <div class="af"><label>Precio anterior tachado</label><input type="text" value="${p.oldPrice}" placeholder="$29.990" oninput="data.products[${i}].oldPrice=this.value;markUnsaved()"></div>
+        </div>
+        <div class="agrid">
+          <div class="af">
+            <label>Badge</label>
+            <select oninput="data.products[${i}].badge=this.value;markUnsaved()">
+              <option value="" ${!p.badge?'selected':''}>Sin badge</option>
+              <option value="new" ${p.badge==='new'?'selected':''}>Nuevo</option>
+              <option value="sale" ${p.badge==='sale'?'selected':''}>Oferta</option>
+            </select>
+            <input type="text" value="${p.badgeText}" placeholder="Texto del badge" style="margin-top:.4rem" oninput="data.products[${i}].badgeText=this.value;markUnsaved()">
+          </div>
+          <div class="af">
+            <label>Imagen del producto</label>
+            <div class="img-upload-area">
+              ${p.img?`<img id="${imgId}" class="img-preview" src="${p.img}" alt="">`:`<div class="img-preview-ph" id="${imgId}"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Sin imagen</span></div>`}
+              <input type="file" id="${inputId}" class="upload-input" accept="image/*" onchange="handleImgUpload(event,${i},'${imgId}','${statusId}')">
+              <button class="btn-upload" onclick="document.getElementById('${inputId}').click()">📁 Subir imagen</button>
+              <div class="upload-status" id="${statusId}"></div>
+              <input type="text" value="${p.img}" placeholder="O pega una URL..." style="margin-top:.4rem" oninput="data.products[${i}].img=this.value;updateImgPreview('${imgId}',this.value);markUnsaved()">
+            </div>
+          </div>
+        </div>
+      </div>`;
+    pa.appendChild(div);
+  });
+
+  // ── GALLERY ──
+  const ga=document.getElementById('gallery-admin'); if(!ga) return; ga.innerHTML='';
+  data.gallery.forEach((url,i)=>{
+    const gStatusId=`gstatus-${i}`, gInputId=`ginput-${i}`, gImgId=`gimg-${i}`;
+    const div=document.createElement('div'); div.className='gallery-admin-item';
+    div.innerHTML=`
+      <div class="gai-img">
+        ${url?`<img id="${gImgId}" src="${url}" alt="">`:`<div id="${gImgId}" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--border);font-size:.65rem">Sin imagen</div>`}
+      </div>
+      <label>Imagen ${i+1}</label>
+      <input type="file" id="${gInputId}" class="upload-input" accept="image/*" onchange="handleGalleryUpload(event,${i},'${gImgId}','${gStatusId}')">
+      <button class="btn-upload" onclick="document.getElementById('${gInputId}').click()">📁 Subir</button>
+      <div class="upload-status" id="${gStatusId}"></div>
+      <input type="text" value="${url}" placeholder="URL..." style="margin-top:.3rem" oninput="data.gallery[${i}]=this.value;updateGalleryImgPreview('${gImgId}',this.value);markUnsaved()">
+      <button class="btn-del" style="width:100%;margin-top:.4rem" onclick="deleteGalleryItem(${i})">Eliminar</button>`;
+    ga.appendChild(div);
+  });
+}
+
+function toggleProductCard(pah){
+  const card = pah.closest('.product-admin-card');
+  card.classList.toggle('collapsed');
+  pah.querySelector('.pan-collapse').textContent = card.classList.contains('collapsed') ? '▶' : '▼';
+}
+
+function updateGalleryImgPreview(elId, url) {
+  const el=document.getElementById(elId); if(!el) return;
+  if(url){
+    if(el.tagName==='IMG'){el.src=url;}
+    else{const img=document.createElement('img');img.id=elId;img.src=url;img.style.cssText='width:100%;height:100%;object-fit:cover;';el.replaceWith(img);}
+  }
+}
+
+// ═══ SAVE ALL ═══
+function saveAll(){
+  data.heroEyebrow = document.getElementById('a-hero-eyebrow')?.value||data.heroEyebrow;
+  data.heroDesc = document.getElementById('a-hero-desc')?.value||data.heroDesc;
+  data.heroBg = document.getElementById('a-hero-bg-url')?.value||data.heroBg;
+  data.heroBtn1 = document.getElementById('a-hero-btn1')?.value||'Ver colección';
+  data.heroBtn2 = document.getElementById('a-hero-btn2')?.value||'Contactar';
+  data.topbar = document.getElementById('a-topbar')?.value||data.topbar;
+  data.brandName = document.getElementById('a-brand-name')?.value||data.brandName;
+  data.brandSlogan = document.getElementById('a-brand-slogan')?.value||'Joyas de Plata';
+  data.footerDesc = document.getElementById('a-footer-desc')?.value||'';
+  data.footerCopy = document.getElementById('a-footer-copy')?.value||data.footerCopy;
+  data.footerBrandName = document.getElementById('a-footer-brand-name')?.value||data.brandName;
+  data.footerBrandSub = document.getElementById('a-footer-brand-sub')?.value||'Joyas de Plata';
+  data.footerCopyRight = document.getElementById('a-footer-copy-right')?.value||'Plata 925 · Chile 🇨🇱';
+  data.footerCol1Title = document.getElementById('a-footer-col1-title')?.value||'Tienda';
+  data.footerCol2Title = document.getElementById('a-footer-col2-title')?.value||'Ayuda';
+  data.footerCol3Title = document.getElementById('a-footer-col3-title')?.value||'Síguenos';
+  data.footerCol1Links = document.getElementById('a-footer-col1-links')?.value||'';
+  data.footerCol2Links = document.getElementById('a-footer-col2-links')?.value||'';
+  data.footerCol3Links = document.getElementById('a-footer-col3-links')?.value||'';
+  data.promo1 = document.getElementById('a-promo1')?.value||data.promo1;
+  data.promo2 = document.getElementById('a-promo2')?.value||data.promo2;
+  data.promo3 = document.getElementById('a-promo3')?.value||data.promo3;
+  data.promo1Title = document.getElementById('a-promo1-title')?.value||'Envío gratis';
+  data.promo2Title = document.getElementById('a-promo2-title')?.value||'Plata certificada';
+  data.promo3Title = document.getElementById('a-promo3-title')?.value||'Devoluciones';
+  data.whatsapp = document.getElementById('a-whatsapp')?.value||data.whatsapp;
+  data.email = document.getElementById('a-email')?.value||data.email;
+  data.location = document.getElementById('a-location')?.value||data.location;
+  data.contactText = document.getElementById('a-contact-text')?.value||data.contactText;
+  data.hours = document.getElementById('a-hours')?.value||'';
+  data.waMessage = document.getElementById('a-wa-message')?.value||'';
+  data.instagram = document.getElementById('a-instagram')?.value||'';
+  data.facebook = document.getElementById('a-facebook')?.value||'';
+  data.tiktok = document.getElementById('a-tiktok')?.value||'';
+  data.pinterest = document.getElementById('a-pinterest')?.value||'';
+  data.showPrices = document.getElementById('a-show-prices')?.checked!==false;
+  data.showStock = document.getElementById('a-show-stock')?.checked!==false;
+  data.showCart = document.getElementById('a-show-cart')?.checked!==false;
+  data.showGallery = document.getElementById('a-show-gallery')?.checked!==false;
+  data.maintenance = !!document.getElementById('a-maintenance')?.checked;
+  data.colorGold = document.getElementById('a-color-gold')?.value||'#c9a96e';
+  data.colorGold2 = document.getElementById('a-color-gold2')?.value||'#e8d5a3';
+  // Apply saved colors
+  if(data.colorGold) document.documentElement.style.setProperty('--gold',data.colorGold);
+  if(data.colorGold2) document.documentElement.style.setProperty('--gold2',data.colorGold2);
+  saveData(data); renderStore(); clearUnsaved(); showToast('Cambios guardados ✓');
+}
+function updateImgPreview(elId, url) {
+  const el = document.getElementById(elId); if (!el) return;
+  if (url) {
+    if (el.tagName === 'IMG') { el.src = url; }
+    else { const img=document.createElement('img'); img.id=elId; img.className=el.className; img.src=url; img.alt=''; img.style.cssText='width:100%;height:120px;object-fit:cover;display:block;margin-bottom:.5rem'; el.replaceWith(img); }
+  }
+}
+function handleImgUpload(event, idx, imgId, statusId) {
+  const file=event.target.files[0]; if(!file) return;
+  uploadToCloudinary(file, document.getElementById(statusId), null, (url)=>{ data.products[idx].img=url; updateImgPreview(imgId,url); markUnsaved(); });
+}
+function handleGalleryUpload(event, idx, imgId, statusId) {
+  const file=event.target.files[0]; if(!file) return;
+  uploadToCloudinary(file, document.getElementById(statusId), null, (url)=>{ data.gallery[idx]=url; updateGalleryImgPreview(imgId,url); markUnsaved(); });
+}
+
+function addProduct(){
+  data.products.push({name:"Nueva Joya",cat:"Categoría",desc:"Descripción.",price:"$0",priceNum:0,stock:10,oldPrice:"",badge:"",badgeText:"",img:""});
+  renderAdmin();
+  // Switch to products tab if not already there
+  const prodTab = document.getElementById('tab-products');
+  if(!prodTab.classList.contains('active')){
+    switchTab('tab-products', document.querySelector('[onclick*="tab-products"]'));
+  }
+  markUnsaved();
+}
+function deleteProduct(i){
+  if(data.products.length<=1){alert('Debe haber al menos 1 producto.');return;}
+  if(!confirm('¿Eliminar este producto?')) return;
+  data.products.splice(i,1);
+  renderAdmin();
+  markUnsaved();
+}
+function addGalleryItem(){
+  data.gallery.push("");
+  renderAdmin();
+  const galTab = document.getElementById('tab-gallery');
+  if(!galTab.classList.contains('active')){
+    switchTab('tab-gallery', document.querySelector('[onclick*="tab-gallery"]'));
+  }
+  markUnsaved();
+}
+function deleteGalleryItem(i){
+  data.gallery.splice(i,1);
+  renderAdmin();
+  markUnsaved();
+}
+
+function changeCredentials(){
+  const u=document.getElementById('a-new-user').value.trim();
+  const p=document.getElementById('a-new-pass').value.trim();
+  if(!u){alert('El usuario no puede estar vacío.');return;}
+  if(p)data.pass=p; data.user=u; saveData(data); showToast('Credenciales actualizadas ✓');
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg||'Cambios guardados';
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800);
+}
+function openLoginModal(){document.getElementById('login-modal').classList.add('active');document.getElementById('login-error').style.display='none';}
+function closeLoginModal(){document.getElementById('login-modal').classList.remove('active');}
+function doLogin(){
+  if(document.getElementById('login-user').value===data.user&&document.getElementById('login-pass').value===data.pass){
+    closeLoginModal();renderAdmin();document.getElementById('admin-panel').classList.add('open');
+    // Reset to dashboard tab on open
+    switchTab('tab-dashboard', document.querySelector('.admin-nav-item'));
+  } else document.getElementById('login-error').style.display='block';
+}
+function closeAdmin(){document.getElementById('admin-panel').classList.remove('open');}
+
+// Drag & drop zone visual feedback
+document.addEventListener('DOMContentLoaded',()=>{
+  ['hero-drop-zone','gallery-drop-zone'].forEach(id=>{
+    const dz=document.getElementById(id); if(!dz) return;
+    dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover');});
+    dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+    dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');});
+  });
+});
+
+renderStore();
+</script>
+</body>
+</html>
