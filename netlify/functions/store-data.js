@@ -1,35 +1,63 @@
-const { getStore } = require('@netlify/blobs');
+const https = require('https');
+
+const SITE_ID = process.env.SITE_ID || process.env.NETLIFY_SITE_ID;
+const TOKEN   = process.env.NETLIFY_BLOBS_TOKEN || process.env.TOKEN;
+const STORE   = 'tienda';
+const KEY     = 'data';
+
+function blobRequest(method, data) {
+  return new Promise((resolve, reject) => {
+    const path = `/api/v1/blobs/${SITE_ID}/${STORE}/${KEY}`;
+    const body = data ? JSON.stringify(data) : null;
+    const opts = {
+      hostname: 'api.netlify.com',
+      path,
+      method,
+      headers: {
+        'Authorization': `Bearer ${TOKEN}`,
+        'Content-Type': 'application/json',
+        ...(body ? { 'Content-Length': Buffer.byteLength(body) } : {}),
+      },
+    };
+    const req = https.request(opts, res => {
+      let raw = '';
+      res.on('data', c => raw += c);
+      res.on('end', () => resolve({ status: res.statusCode, body: raw }));
+    });
+    req.on('error', reject);
+    if (body) req.write(body);
+    req.end();
+  });
+}
 
 exports.handler = async (event) => {
-  const store = getStore('tienda');
+  const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' };
 
-  // GET — cargar datos
   if (event.httpMethod === 'GET') {
     try {
-      const raw = await store.get('data');
-      if (!raw) return { statusCode: 200, body: JSON.stringify(null) };
-      return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: raw };
+      const r = await blobRequest('GET');
+      if (r.status === 200) return { statusCode: 200, headers, body: r.body };
+      return { statusCode: 200, headers, body: JSON.stringify(null) };
     } catch (e) {
-      return { statusCode: 200, body: JSON.stringify(null) };
+      return { statusCode: 200, headers, body: JSON.stringify(null) };
     }
   }
 
-  // POST — guardar datos (solo si viene con token de admin)
   if (event.httpMethod === 'POST') {
     try {
-      const body = JSON.parse(event.body);
-      // Verificación básica: debe tener la estructura de datos de la tienda
-      if (!body || !body.brandName) {
-        return { statusCode: 400, body: JSON.stringify({ error: 'Datos inválidos' }) };
+      const parsed = JSON.parse(event.body);
+      if (!parsed || !parsed.brandName) {
+        return { statusCode: 400, headers, body: JSON.stringify({ error: 'Datos inválidos' }) };
       }
-      // No guardar la contraseña en texto plano en los datos públicos del GET
-      // (la pass solo se usa para login en el frontend, no la exponemos)
-      await store.set('data', JSON.stringify(body));
-      return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+      const r = await blobRequest('PUT', parsed);
+      if (r.status >= 200 && r.status < 300) {
+        return { statusCode: 200, headers, body: JSON.stringify({ ok: true }) };
+      }
+      return { statusCode: 500, headers, body: JSON.stringify({ error: `Blob error ${r.status}` }) };
     } catch (e) {
-      return { statusCode: 500, body: JSON.stringify({ error: e.message }) };
+      return { statusCode: 500, headers, body: JSON.stringify({ error: e.message }) };
     }
   }
 
-  return { statusCode: 405, body: 'Method not allowed' };
+  return { statusCode: 405, headers, body: 'Method not allowed' };
 };
