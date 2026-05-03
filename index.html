@@ -368,6 +368,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
 
 /* ═══ PRODUCT DETAIL PAGE ═══ */
 #product-page{display:none;position:fixed;inset:0;background:var(--black);z-index:450;overflow-y:auto;}
+#product-page-bg{position:fixed;inset:0;z-index:-1;background-size:cover;background-position:center;background-repeat:no-repeat;}
 #product-page.open{display:block;}
 .pdp-bar{background:rgba(14,14,14,.96);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;position:sticky;top:0;z-index:460;backdrop-filter:blur(16px);}
 .pdp-bar-brand{font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);font-style:italic;}
@@ -548,6 +549,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
 
 <!-- PRODUCT DETAIL PAGE -->
 <div id="product-page">
+  <div id="product-page-bg"></div>
   <div class="pdp-bar">
     <div class="pdp-bar-brand" id="pdp-brand-name">Indomita Silver</div>
     <button class="pdp-back" onclick="closeProductPage()">
@@ -592,10 +594,6 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
       <button class="pdp-add-btn" id="pdp-add-btn" onclick="pdpAddToCart()">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         Agregar al carrito
-      </button>
-      <button class="pdp-wish-btn">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        Guardar en favoritos
       </button>
       <div class="pdp-trust">
         <div class="pdp-trust-item">
@@ -987,6 +985,38 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="admin-section">
+          <div class="admin-section-title">Fondo de la página de producto</div>
+          <div class="admin-section-subtitle">Se muestra al abrir el detalle de cualquier producto</div>
+          <div class="agrid">
+            <div class="af">
+              <label>Color de fondo</label>
+              <div class="color-field">
+                <input type="color" id="a-pdp-bg-color" value="#0e0e0e" oninput="livePreviewPdpBg();markUnsaved()">
+                <input type="text" id="a-pdp-bg-color-hex" value="#0e0e0e" oninput="document.getElementById('a-pdp-bg-color').value=this.value;livePreviewPdpBg();markUnsaved()">
+              </div>
+              <div class="af-hint">Color sólido de fondo para la página del producto</div>
+            </div>
+            <div class="af">
+              <label>Opacidad del overlay (0–1)</label>
+              <input type="range" id="a-pdp-overlay-opacity" min="0" max="1" step="0.05" value="0.7" oninput="document.getElementById('a-pdp-overlay-opacity-val').textContent=this.value;livePreviewPdpBg();markUnsaved()" style="width:100%;margin-top:.5rem">
+              <span id="a-pdp-overlay-opacity-val" style="font-size:.72rem;color:var(--muted)">0.7</span>
+              <div class="af-hint">Solo aplica si hay imagen de fondo</div>
+            </div>
+          </div>
+          <div class="af">
+            <label>Imagen de fondo (URL)</label>
+            <input type="text" id="a-pdp-bg-img" placeholder="https://... (opcional)" oninput="livePreviewPdpBg();markUnsaved()">
+            <div class="af-hint">Si se ingresa una URL, se usará como imagen de fondo con el color encima como overlay</div>
+          </div>
+          <div class="af">
+            <label>O sube una imagen</label>
+            <input type="file" id="a-pdp-bg-upload" class="upload-input" accept="image/*" onchange="handlePdpBgUpload(event)">
+            <button class="btn-upload" onclick="document.getElementById('a-pdp-bg-upload').click()">📁 Subir imagen de fondo</button>
+            <div class="upload-status" id="pdp-bg-status"></div>
+          </div>
+          <div id="pdp-bg-preview" style="margin-top:.8rem;height:100px;border:1px solid var(--border);background:var(--black);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">Vista previa del fondo</div>
+        </div>
+        <div class="admin-section">
           <div class="admin-section-title">Opciones de la tienda</div>
           <div class="toggle-row"><div><div class="toggle-label">Mostrar precios</div><div class="toggle-sub">Ocultar precios en las tarjetas de producto</div></div><label class="toggle-switch"><input type="checkbox" id="a-show-prices" checked onchange="markUnsaved()"><span class="toggle-slider"></span></label></div>
           <div class="toggle-row"><div><div class="toggle-label">Mostrar stock</div><div class="toggle-sub">Indicador de últimas unidades / agotado</div></div><label class="toggle-switch"><input type="checkbox" id="a-show-stock" checked onchange="markUnsaved()"><span class="toggle-slider"></span></label></div>
@@ -1110,13 +1140,50 @@ async function submitPayment(){
   if(!validateCheckout())return;
   const btn=document.getElementById('pay-btn'),err=document.getElementById('checkout-error');
   btn.disabled=true;btn.textContent='Procesando...';err.classList.remove('show');
-  const orderData={order:'ORD-'+Date.now(),amount:cartTotal(),email:document.getElementById('f-email').value,subject:'Compra en Indomita Silver'};
+
+  const orderId = 'ORD-'+Date.now();
+  const customerEmail = document.getElementById('f-email').value;
+
+  const orderData={
+    order: orderId,
+    amount: cartTotal(),
+    email: customerEmail,
+    subject: 'Compra en Indomita Silver'
+  };
+
+  // Datos completos para la notificación
+  const notifyData = {
+    orderId,
+    customer: {
+      nombre: document.getElementById('f-nombre').value,
+      apellido: document.getElementById('f-apellido')?.value||'',
+      email: customerEmail,
+      telefono: document.getElementById('f-telefono').value,
+    },
+    shipping: {
+      direccion: document.getElementById('f-direccion').value,
+      ciudad: document.getElementById('f-ciudad').value,
+      region: document.getElementById('f-region')?.value||'',
+      cp: document.getElementById('f-cp')?.value||'',
+    },
+    items: cart.map(i=>({name:i.name, qty:i.qty, priceStr:i.priceStr})),
+    total: formatPrice(cartTotal()),
+  };
+
   try{
+    // 1. Crear pago en Flow
     const resp=await fetch('/.netlify/functions/create-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(orderData)});
     const result=await resp.json();
-    if(result.redirectUrl){window.location.href=result.redirectUrl;}
-    else{err.textContent=result.error||'Error al procesar el pago.';err.classList.add('show');btn.disabled=false;btn.innerHTML='Pagar con Flow';}
-  }catch(e){err.textContent='Error de conexión. Verifica que el sitio esté en Netlify.';err.classList.add('show');btn.disabled=false;btn.innerHTML='Pagar con Flow';}
+    if(result.redirectUrl){
+      // 2. Enviar notificación por email (sin esperar, no bloquea el redirect)
+      fetch('/.netlify/functions/notify-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(notifyData)}).catch(()=>{});
+      window.location.href=result.redirectUrl;
+    } else {
+      err.textContent=result.error||'Error al procesar el pago.';err.classList.add('show');btn.disabled=false;btn.innerHTML='Pagar con Flow';
+    }
+  }catch(e){
+    err.textContent='Error de conexión. Verifica que el sitio esté en Netlify.';err.classList.add('show');btn.disabled=false;btn.innerHTML='Pagar con Flow';
+  }
 }
 
 // RENDER STORE
@@ -1399,6 +1466,14 @@ function renderAdmin(){
   // Color pickers
   if(data.colorGold) { const ci=document.getElementById('a-color-gold'); if(ci){ci.value=data.colorGold;document.getElementById('a-color-gold-hex').value=data.colorGold;} }
   if(data.colorGold2) { const ci=document.getElementById('a-color-gold2'); if(ci){ci.value=data.colorGold2;document.getElementById('a-color-gold2-hex').value=data.colorGold2;} }
+  // PDP background
+  const pdpColor = data.pdpBgColor||'#0e0e0e';
+  const pdpImg = data.pdpBgImg||'';
+  const pdpOpacity = data.pdpOverlayOpacity??0.7;
+  if(document.getElementById('a-pdp-bg-color')) { document.getElementById('a-pdp-bg-color').value=pdpColor; document.getElementById('a-pdp-bg-color-hex').value=pdpColor; }
+  if(document.getElementById('a-pdp-bg-img')) document.getElementById('a-pdp-bg-img').value=pdpImg;
+  if(document.getElementById('a-pdp-overlay-opacity')) { document.getElementById('a-pdp-overlay-opacity').value=pdpOpacity; document.getElementById('a-pdp-overlay-opacity-val').textContent=pdpOpacity; }
+  applyPdpBg(pdpColor, pdpImg, pdpOpacity);
 
   // Product count label
   const pcl = document.getElementById('product-count-label');
@@ -1558,9 +1633,13 @@ function saveAll(){
   data.maintenance = !!document.getElementById('a-maintenance')?.checked;
   data.colorGold = document.getElementById('a-color-gold')?.value||'#c9a96e';
   data.colorGold2 = document.getElementById('a-color-gold2')?.value||'#e8d5a3';
-  // Apply saved colors
+  data.pdpBgColor = document.getElementById('a-pdp-bg-color')?.value||'#0e0e0e';
+  data.pdpBgImg = document.getElementById('a-pdp-bg-img')?.value||'';
+  data.pdpOverlayOpacity = parseFloat(document.getElementById('a-pdp-overlay-opacity')?.value||'0.7');
   if(data.colorGold) document.documentElement.style.setProperty('--gold',data.colorGold);
   if(data.colorGold2) document.documentElement.style.setProperty('--gold2',data.colorGold2);
+  if(data.pdpBgColor||data.pdpBgImg) applyPdpBg(data.pdpBgColor||'#0e0e0e', data.pdpBgImg||'', data.pdpOverlayOpacity??0.7);
+  applyPdpBg(data.pdpBgColor, data.pdpBgImg, data.pdpOverlayOpacity);
   saveData(data); renderStore(); clearUnsaved(); showToast('Cambios guardados ✓');
 }
 function updateImgPreview(elId, url) {
@@ -1645,6 +1724,51 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 renderStore();
 
+// ═══ PDP BACKGROUND LIVE PREVIEW ═══
+function livePreviewPdpBg() {
+  const color = document.getElementById('a-pdp-bg-color')?.value || '#0e0e0e';
+  const imgUrl = document.getElementById('a-pdp-bg-img')?.value || '';
+  const opacity = document.getElementById('a-pdp-overlay-opacity')?.value || '0.7';
+  document.getElementById('a-pdp-bg-color-hex').value = color;
+  // Update preview box
+  const prev = document.getElementById('pdp-bg-preview');
+  if(prev) {
+    if(imgUrl) { prev.style.backgroundImage=`url('${imgUrl}')`; prev.style.backgroundSize='cover'; }
+    else { prev.style.backgroundImage='none'; }
+    prev.style.backgroundColor = color;
+  }
+  // Apply to actual product page
+  applyPdpBg(color, imgUrl, parseFloat(opacity));
+}
+function applyPdpBg(color, imgUrl, opacity) {
+  const page = document.getElementById('product-page');
+  const bgEl = document.getElementById('product-page-bg');
+  if(page) page.style.backgroundColor = color;
+  if(bgEl) {
+    if(imgUrl) {
+      bgEl.style.backgroundImage = `url('${imgUrl}')`;
+      bgEl.style.backgroundColor = hexToRgba(color, opacity);
+    } else {
+      bgEl.style.backgroundImage = 'none';
+      bgEl.style.backgroundColor = 'transparent';
+    }
+  }
+}
+function hexToRgba(hex, alpha) {
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+function handlePdpBgUpload(event) {
+  const file = event.target.files[0]; if(!file) return;
+  const status = document.getElementById('pdp-bg-status');
+  uploadToCloudinary(file, status, null, (url) => {
+    document.getElementById('a-pdp-bg-img').value = url;
+    data.pdpBgImg = url;
+    livePreviewPdpBg();
+    markUnsaved();
+  });
+}
+
 // ═══ PRODUCT DETAIL PAGE ═══
 let currentPdpIdx = null;
 
@@ -1703,5 +1827,6 @@ function pdpAddToCart(){
   if(ex){ex.qty=Math.min(p.stock,ex.qty+qty);}else{cart.push({idx:currentPdpIdx,name:p.name,price:p.priceNum||0,priceStr:p.price,img:p.img,qty});}
   updateCartBadge();closeProductPage();openCart();
 }
+</script>
 </body>
 </html>
