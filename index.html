@@ -430,18 +430,155 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
 .pac-detail-section{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
 .pac-detail-section-title{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:600;}
 
+/* ═══════════════════════════════════════
+   RESPONSIVE — TABLET (max 768px)
+═══════════════════════════════════════ */
 @media(max-width:768px){
-  .nav-inner{padding:0 1.5rem;}.nav-links{display:none;}.section-wrap{padding:3.5rem 1.5rem;}
-  .checkout-body{grid-template-columns:1fr;}.checkout-right{position:static;}
-  .contact-inner{grid-template-columns:1fr;gap:2.5rem;}
-  .promo-strip{grid-template-columns:1fr;}.promo-item{border-right:none;border-bottom:1px solid var(--border);}
+  /* NAV */
+  .nav-inner{padding:0 1.2rem;height:60px;}
+  .nav-links{display:none;}
+  .nav-logo img{width:38px;height:38px;}
+  .nav-logo-text{font-size:1.05rem;}
+  .nav-logo-sub{display:none;}
+  .nav-admin{padding:.3rem .7rem;font-size:.58rem;}
+  .nav-right{gap:.2rem;}
+
+  /* HERO */
+  #hero{min-height:90vh;}
+  .hero-content{padding:1.5rem 1.2rem;}
+  .hero-logo-img{width:90px;height:90px;margin-bottom:1.2rem;}
+  .hero-eyebrow{font-size:.6rem;letter-spacing:.2em;margin-bottom:1rem;}
+  .hero-title{font-size:clamp(2.2rem,10vw,3.5rem);}
+  .hero-subtitle{font-size:clamp(.85rem,3vw,1.1rem);letter-spacing:.15em;}
+  .hero-desc{font-size:.74rem;margin-bottom:1.8rem;}
+  .hero-ctas{flex-direction:column;align-items:center;gap:.8rem;}
+  .btn-gold,.btn-ghost{width:100%;max-width:260px;padding:.75rem 1.5rem;}
+
+  /* PROMO STRIP */
+  .promo-strip{grid-template-columns:1fr;}
+  .promo-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 1.5rem;justify-content:flex-start;}
+  .promo-item:last-child{border-bottom:none;}
+
+  /* SECTIONS */
+  .section-wrap{padding:3rem 1.2rem;}
+  .section-title{font-size:clamp(1.6rem,6vw,2.2rem);}
+
+  /* PRODUCTS */
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* GALLERY */
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* CONTACT */
+  .contact-inner{grid-template-columns:1fr;gap:2rem;}
+
+  /* FOOTER */
   .footer-main{grid-template-columns:1fr 1fr;gap:2rem;padding:2.5rem 1.5rem;}
-  .agrid,.form-row{grid-template-columns:1fr;}
-  .hero-ctas{flex-direction:column;align-items:center;}
   .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;padding:1rem 1.5rem;}
-  .pdp-body{grid-template-columns:1fr;gap:2rem;}
+
+  /* CART */
+  .cart-drawer{width:100vw;right:-100vw;}
+
+  /* CHECKOUT */
+  .checkout-body{grid-template-columns:1fr;}
+  .checkout-right{position:static;}
+  .checkout-bar{padding:0 1.2rem;}
+  .agrid,.form-row{grid-template-columns:1fr;}
+
+  /* PRODUCT DETAIL PAGE */
+  .pdp-body{grid-template-columns:1fr;gap:1.5rem;padding:1.5rem 1.2rem;}
   .pdp-gallery{position:static;}
+  .pdp-bar{padding:0 1.2rem;}
+  .pdp-bar-brand{font-size:.95rem;}
+  .pdp-back{font-size:.58rem;}
+  .pdp-name{font-size:clamp(1.5rem,6vw,2rem);}
+  .pdp-price{font-size:1.6rem;}
+  .pdp-trust{grid-template-columns:repeat(3,1fr);}
+  .pdp-trust-label{font-size:.52rem;}
 }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — MOBILE (max 480px)
+═══════════════════════════════════════ */
+@media(max-width:480px){
+  /* TOPBAR */
+  .topbar{font-size:.58rem;letter-spacing:.1em;padding:.4rem .8rem;}
+
+  /* NAV */
+  .nav-inner{padding:0 1rem;height:56px;}
+  .nav-logo img{width:34px;height:34px;}
+  .nav-logo-text{font-size:.95rem;}
+  .nav-admin{display:none;} /* ocultar en pantallas muy pequeñas, acceso via menú */
+
+  /* HERO */
+  #hero{min-height:100svh;}
+  .hero-logo-img{width:75px;height:75px;}
+  .hero-title{font-size:clamp(1.9rem,11vw,2.8rem);}
+  .hero-eyebrow{letter-spacing:.15em;}
+  .hero-divider{margin:1rem auto;}
+  .hero-desc{font-size:.72rem;}
+
+  /* PRODUCTS */
+  .products-grid{grid-template-columns:1fr 1fr;gap:0;}
+  .product-info{padding:1rem .9rem;}
+  .product-name{font-size:1rem;}
+  .product-desc{display:none;}
+  .product-price{font-size:1rem;}
+
+  /* GALLERY */
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* FOOTER */
+  .footer-main{grid-template-columns:1fr;gap:1.5rem;padding:2rem 1.2rem;}
+
+  /* PROMO */
+  .promo-item{padding:.9rem 1.2rem;}
+  .promo-text strong{font-size:.65rem;}
+  .promo-text span{font-size:.68rem;}
+
+  /* SECTION */
+  .section-wrap{padding:2.5rem 1rem;}
+
+  /* PRODUCT DETAIL */
+  .pdp-body{padding:1rem;}
+  .pdp-bar{height:52px;padding:0 1rem;}
+  .pdp-thumb{width:56px;height:56px;}
+  .pdp-trust{gap:.3rem;}
+  .pdp-trust-item{padding:.6rem .2rem;}
+  .pdp-trust-icon svg{width:14px;height:14px;}
+  .pdp-add-btn{padding:.85rem;}
+  .pdp-qty-wrap{margin-bottom:1rem;}
+
+  /* CHECKOUT */
+  .checkout-bar{padding:0 1rem;}
+  .checkout-body{padding:1.5rem 1rem;}
+  .checkout-summary-items{max-height:200px;}
+
+  /* ADMIN — nav-admin visible como ícono en móvil */
+  .nav-admin{display:block;border:none;padding:.3rem;font-size:0;}
+  .nav-admin::before{content:'⚙';font-size:1.1rem;color:var(--muted);}
+}
+/* ═══ HAMBURGER & MOBILE MENU ═══ */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:.4rem;width:36px;height:36px;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--muted);transition:all .3s;transform-origin:center;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:350;backdrop-filter:blur(4px);}
+.mobile-menu-overlay.open{display:block;}
+.mobile-menu{position:fixed;top:0;right:-100%;width:min(320px,85vw);height:100vh;background:var(--charcoal);z-index:360;border-left:1px solid var(--border);transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+.mobile-menu.open{right:0;}
+.mobile-menu-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);height:60px;}
+.mobile-menu-brand{font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);font-style:italic;}
+.mobile-menu-close{background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:.3rem;}
+.mobile-menu-nav{display:flex;flex-direction:column;padding:1.5rem 0;flex:1;}
+.mobile-menu-nav a{display:block;padding:1rem 1.8rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);transition:color .2s;}
+.mobile-menu-nav a:hover{color:var(--gold);}
+.mobile-menu-footer{padding:1.5rem;}
+.mobile-menu-admin{width:100%;background:transparent;border:1px solid var(--border);color:var(--muted);padding:.8rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);transition:all .2s;}
+.mobile-menu-admin:hover{border-color:var(--gold);color:var(--gold);}
+@media(max-width:768px){.nav-hamburger{display:flex;}}
+@media(max-width:480px){.nav-admin{display:none;}.nav-hamburger{display:flex;}}
 </style>
 </head>
 <body>
@@ -468,9 +605,29 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
         <span class="cart-badge" id="cart-badge">0</span>
       </button>
       <button class="nav-admin" onclick="openLoginModal()">Admin</button>
+      <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-brand">Indomita Silver</span>
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+  </div>
+  <nav class="mobile-menu-nav">
+    <a href="#catalogo" onclick="closeMobileMenu()">Colección</a>
+    <a href="#galeria" onclick="closeMobileMenu()">Galería</a>
+    <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <button class="mobile-menu-admin" onclick="closeMobileMenu();openLoginModal()">⚙ Panel Admin</button>
+  </div>
+</div>
 
 <section id="hero">
   <div class="hero-bg"><img id="hero-bg-img" src="hero.jpeg" alt="Indomita Silver"></div>
@@ -1186,6 +1343,20 @@ async function submitPayment(){
   }
 }
 
+function toggleMobileMenu(){
+  const menu=document.getElementById('mobile-menu');
+  const overlay=document.getElementById('mobile-menu-overlay');
+  const btn=document.getElementById('nav-hamburger');
+  const isOpen=menu.classList.contains('open');
+  if(isOpen){closeMobileMenu();}else{menu.classList.add('open');overlay.classList.add('open');btn.classList.add('open');document.body.style.overflow='hidden';}
+}
+function closeMobileMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('mobile-menu-overlay').classList.remove('open');
+  document.getElementById('nav-hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+
 // RENDER STORE
 function renderStore(){
   document.title=data.brandName+' — Joyas de Plata';
@@ -1208,6 +1379,8 @@ function renderStore(){
   if(data.footerDesc) document.getElementById('footer-brand-desc-el').textContent=data.footerDesc;
   if(data.footerCopyRight) document.getElementById('footer-copy-right-el').textContent=data.footerCopyRight;
   if(data.footerLogo) { document.getElementById('footer-logo-img').src=data.footerLogo; document.getElementById('nav-logo-img').src=data.footerLogo; }
+  if(data.heroLogo) { document.getElementById('nav-logo-img').src=data.heroLogo; const hl=document.querySelector('.hero-logo-img'); if(hl) hl.src=data.heroLogo; }
+  if(data.heroBg) { document.getElementById('hero-bg-img').src=data.heroBg; }
 
   // Footer columns
   if(data.footerCol1Title) document.getElementById('footer-col1-title-el').textContent=data.footerCol1Title;
@@ -1596,6 +1769,8 @@ function saveAll(){
   data.heroBg = document.getElementById('a-hero-bg-url')?.value||data.heroBg;
   data.heroBtn1 = document.getElementById('a-hero-btn1')?.value||'Ver colección';
   data.heroBtn2 = document.getElementById('a-hero-btn2')?.value||'Contactar';
+  // heroLogo y footerLogo se guardan en sus upload handlers, solo aseguramos que persistan
+  if(!data.heroLogo) data.heroLogo = data.footerLogo||'';
   data.topbar = document.getElementById('a-topbar')?.value||data.topbar;
   data.brandName = document.getElementById('a-brand-name')?.value||data.brandName;
   data.brandSlogan = document.getElementById('a-brand-slogan')?.value||'Joyas de Plata';
