@@ -38,6 +38,10 @@ nav{position:sticky;top:0;z-index:300;background:rgba(14,14,14,.96);backdrop-fil
 .hero-content{position:relative;text-align:center;max-width:760px;padding:2rem;}
 .hero-eyebrow{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:500;}
 .hero-logo-img{width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 1.8rem;border:1px solid rgba(201,169,110,.3);box-shadow:0 0 40px rgba(201,169,110,.15);}
+.hero-logo-img:not([src]), .hero-logo-img[src=""]{display:none;}
+#nav-logo-img:not([src]), #nav-logo-img[src=""]{display:none;}
+#hero-bg-img:not([src]), #hero-bg-img[src=""]{display:none;}
+#footer-logo-img:not([src]), #footer-logo-img[src=""]{display:none;}
 .hero-title{font-family:var(--font-serif);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:1.05;color:#f5f0e8;margin-bottom:.6rem;}
 .hero-title em{color:var(--gold);font-style:italic;}
 .hero-subtitle{font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.4rem);font-weight:300;color:var(--gold2);letter-spacing:.25em;text-transform:uppercase;margin-bottom:.8rem;font-style:italic;}
@@ -588,7 +592,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
 <nav>
   <div class="nav-inner">
     <div class="nav-logo" onclick="window.scrollTo(0,0)">
-      <img id="nav-logo-img" src="logo.jpeg" alt="Indomita Silver">
+      <img id="nav-logo-img" src="" alt="Indomita Silver">
       <div>
         <span class="nav-logo-text" id="nav-logo-text-el">Indomita Silver</span>
         <span class="nav-logo-sub">Joyas de Plata</span>
@@ -630,11 +634,11 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
 </div>
 
 <section id="hero">
-  <div class="hero-bg"><img id="hero-bg-img" src="hero.jpeg" alt="Indomita Silver"></div>
+  <div class="hero-bg"><img id="hero-bg-img" src="" alt="Indomita Silver"></div>
   <div class="hero-overlay"></div><div class="hero-deco"></div>
   <div class="hero-content">
     <div class="hero-eyebrow" id="hero-eyebrow-text">Colección 2025</div>
-    <img class="hero-logo-img" src="logo.jpeg" alt="Logo">
+    <img class="hero-logo-img" src="" alt="Logo">
     <h1 class="hero-title">Indomita <em>Silver</em></h1>
     <div class="hero-subtitle">Joyas de Plata</div>
     <div class="hero-divider"></div>
@@ -692,7 +696,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
 <footer>
   <div class="footer-main">
     <div class="footer-brand">
-      <img id="footer-logo-img" src="logo.jpeg" alt="Logo">
+      <img id="footer-logo-img" src="" alt="Logo">
       <div class="footer-brand-name" id="footer-brand-name-el">Indomita Silver</div>
       <div class="footer-brand-sub" id="footer-brand-sub-el">Joyas de Plata</div>
       <p class="footer-brand-desc" id="footer-brand-desc-el">Piezas únicas en plata 925. Elegancia y distinción en cada joya.</p>
@@ -933,7 +937,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
           <div class="hero-editor">
             <div>
               <div class="hero-preview-box" id="hero-preview-container">
-                <img id="hero-preview-img" src="hero.jpeg" alt="Portada" style="object-fit:cover">
+                <img id="hero-preview-img" src="" alt="Portada" style="object-fit:cover">
                 <div class="hero-preview-overlay">
                   <div class="hero-preview-label" id="hp-title-preview">Indomita <em>Silver</em></div>
                   <div class="hero-preview-sublabel" id="hp-eyebrow-preview">Colección 2025</div>
@@ -962,7 +966,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
               <div class="af">
                 <label>Imagen del logo (centro del hero)</label>
                 <div class="img-upload-area">
-                  <img id="hero-logo-preview" src="logo.jpeg" style="height:80px;object-fit:contain;margin:0 auto .5rem;display:block">
+                  <img id="hero-logo-preview" src="" style="height:80px;object-fit:contain;margin:0 auto .5rem;display:block">
                   <input type="file" id="hero-logo-input" class="upload-input" accept="image/*" onchange="handleHeroLogoUpload(event)">
                   <button class="btn-upload" onclick="document.getElementById('hero-logo-input').click()">📁 Cambiar logo</button>
                   <div class="upload-status" id="hero-logo-status"></div>
@@ -1037,7 +1041,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);}
               <div class="af">
                 <label>Logo del footer</label>
                 <div class="img-upload-area" style="text-align:center">
-                  <img id="footer-logo-preview" src="logo.jpeg" style="height:64px;width:64px;object-fit:cover;border-radius:50%;margin:0 auto .5rem;display:block;border:1px solid var(--border)">
+                  <img id="footer-logo-preview" src="" style="height:64px;width:64px;object-fit:cover;border-radius:50%;margin:0 auto .5rem;display:block;border:1px solid var(--border)">
                   <input type="file" id="footer-logo-input" class="upload-input" accept="image/*" onchange="handleFooterLogoUpload(event)">
                   <button class="btn-upload" onclick="document.getElementById('footer-logo-input').click()">📁 Cambiar logo</button>
                   <div class="upload-status" id="footer-logo-status"></div>
@@ -1232,6 +1236,29 @@ const DEFAULT={brandName:"Indomita Silver",topbar:"Envío gratis en compras sobr
 function loadData(){try{return JSON.parse(localStorage.getItem('indomitaV4'))||DEFAULT;}catch{return DEFAULT;}}
 function saveData(d){localStorage.setItem('indomitaV4',JSON.stringify(d));}
 let data=loadData();
+
+// ═══ CLOUD DATA SYNC ═══
+async function loadCloudData(){
+  try{
+    const resp=await fetch('/.netlify/functions/store-data');
+    if(!resp.ok) return;
+    const cloud=await resp.json();
+    if(cloud && cloud.brandName){
+      data=cloud;
+      saveData(data); // cache local
+      renderStore();
+    }
+  }catch(e){ console.warn('Sin conexión a nube, usando datos locales'); }
+}
+async function saveCloudData(d){
+  try{
+    await fetch('/.netlify/functions/store-data',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(d)
+    });
+  }catch(e){ console.warn('Error guardando en nube:', e.message); }
+}
 
 // CLOUDINARY UPLOAD
 async function uploadToCloudinary(file, statusEl, imgEl, onSuccess) {
@@ -1567,7 +1594,7 @@ function previewSite(){ saveAll(); closeAdmin(); window.scrollTo({top:0,behavior
 // ═══ CONFIRM RESET ═══
 function confirmReset(){
   if(confirm('¿Resetear todo a los valores por defecto? Esta acción no se puede deshacer.')) {
-    localStorage.removeItem('indomitaV4'); data=loadData(); renderAdmin(); renderStore();
+    localStorage.removeItem('indomitaV4'); saveCloudData(DEFAULT); data=loadData(); renderAdmin(); renderStore();
     showToast('Datos reseteados');
   }
 }
@@ -1815,7 +1842,7 @@ function saveAll(){
   if(data.colorGold2) document.documentElement.style.setProperty('--gold2',data.colorGold2);
   if(data.pdpBgColor||data.pdpBgImg) applyPdpBg(data.pdpBgColor||'#0e0e0e', data.pdpBgImg||'', data.pdpOverlayOpacity??0.7);
   applyPdpBg(data.pdpBgColor, data.pdpBgImg, data.pdpOverlayOpacity);
-  saveData(data); renderStore(); clearUnsaved(); showToast('Cambios guardados ✓');
+  saveData(data); saveCloudData(data); renderStore(); clearUnsaved(); showToast('Cambios guardados ✓');
 }
 function updateImgPreview(elId, url) {
   const el = document.getElementById(elId); if (!el) return;
@@ -1869,7 +1896,7 @@ function changeCredentials(){
   const u=document.getElementById('a-new-user').value.trim();
   const p=document.getElementById('a-new-pass').value.trim();
   if(!u){alert('El usuario no puede estar vacío.');return;}
-  if(p)data.pass=p; data.user=u; saveData(data); showToast('Credenciales actualizadas ✓');
+  if(p)data.pass=p; data.user=u; saveData(data); saveCloudData(data); showToast('Credenciales actualizadas ✓');
 }
 function showToast(msg){
   const t=document.getElementById('toast');
@@ -1898,8 +1925,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 renderStore();
-
-// ═══ PDP BACKGROUND LIVE PREVIEW ═══
+// Cargar datos de la nube (sobreescribe localStorage si hay datos más recientes)
+loadCloudData();
 function livePreviewPdpBg() {
   const color = document.getElementById('a-pdp-bg-color')?.value || '#0e0e0e';
   const imgUrl = document.getElementById('a-pdp-bg-img')?.value || '';
